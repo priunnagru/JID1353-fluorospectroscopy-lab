@@ -3,7 +3,8 @@
 2. Download and install VSCode (https://code.visualstudio.com/download)
 3. Run Docker Desktop
 4. Open VSCode, install the Docker extension (https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
-5. You should probably restart your computer now
+5. Install the Remote Development extension (https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
+6. You should probably restart your computer now
 
 # VSCODE SETUP
 1. Open VSCode, File > Open Folder > JID1353-fluorospectroscopy-lab (git repo)

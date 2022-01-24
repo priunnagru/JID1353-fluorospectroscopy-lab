@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+    fluorospectroscopy-docker:
+        tty: true
+        image: node:latest
+        container_name: fluorospectroscopy-docker
+        volumes:
+            - ./Fluorospectroscopy-App:/Fluorospectroscopy-App:rw
+        environment:
+            CHOKIDAR_USEPOLLING: "true"

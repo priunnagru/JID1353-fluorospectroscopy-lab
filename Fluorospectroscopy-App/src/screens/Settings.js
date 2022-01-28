@@ -1,6 +1,6 @@
 import { Button, Typography, Box } from '@mui/material';
 
-const settings = () => {
+const Settings = () => {
   return (
     <>
       <Box display="flex" justifyContent="center" m={5}>
@@ -12,4 +12,4 @@ const settings = () => {
   );
 }
 
-export default settings;
+export default Settings;

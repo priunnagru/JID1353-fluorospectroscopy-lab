@@ -1,7 +1,7 @@
 import { Button, Typography, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const menu = () => {
+const Menu = () => {
   return (
     <>
       <Box display="flex" justifyContent="center" m={5}>
@@ -31,4 +31,4 @@ const menu = () => {
   );
 }
 
-export default menu;
+export default Menu;

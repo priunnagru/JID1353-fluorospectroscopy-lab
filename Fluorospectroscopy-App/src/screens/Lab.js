@@ -1,6 +1,6 @@
 import { Button, Typography, Box } from '@mui/material';
 
-const lab = () => {
+const Lab = () => {
   return (
     <> 
       <Box display="flex" justifyContent="center" m={5}>
@@ -12,4 +12,4 @@ const lab = () => {
   );
 }
   
-export default lab;
+export default Lab;

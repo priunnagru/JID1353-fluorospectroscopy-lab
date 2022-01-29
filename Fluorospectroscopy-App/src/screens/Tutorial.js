@@ -1,4 +1,6 @@
-import { Button, Typography, Box } from '@mui/material';
+import { Button, Typography, Box, Radio, FormControl, FormLabel, RadioGroup, FormControlLabel } from '@mui/material';
+import FormHelperText from '@mui/material/FormHelperText';
+import { fontSize } from '@mui/system';
 import React, { useState } from 'react';
 
 
@@ -43,45 +45,33 @@ const Tutorial = () => {
 		},
 	];
 
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-	const [showScore, setShowScore] = useState(false);
-	const [score, setScore] = useState(0);
+	const [currentQuestion, setCurrentQuestion] = useState(0);
 
-  const handleAnswerOptionClick = (isCorrect) => {
+	const handleAnswerOptionClick = (isCorrect) => {
 		if (isCorrect) {
-			setScore(score + 1);
-		}
-
-		const nextQuestion = currentQuestion + 1;
-		if (nextQuestion < questions.length) {
-			setCurrentQuestion(nextQuestion);
-		} else {
-			setShowScore(true);
+      const nextQuestion = currentQuestion + 1;
+      if (nextQuestion < questions.length) {
+        setCurrentQuestion(nextQuestion);
+      }
 		}
 	};
 
   return (
-		<div className='app'>
-			{/* HINT: replace "false" with logic to display the 
-      score when the user has answered all the questions */}
-			{false ? (
-				<div className='score-section'>You scored 1 out of {questions.length}</div>
-			) : (
-				<>
-					<div className='question-section'>
-						<div className='question-count'>
-							<span>Question 1</span>/{questions.length}
-						</div>
-						<div className='question-text'>{questions[currentQuestion].questionText}</div>
-					</div>
-					<div className='answer-section'>
-              {questions[currentQuestion].answerOptions.map((answerOption) => (
-							<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
-						))}
-					</div>
-				</>
-			)}
-		</div>
+    <>
+      <Box display="flex" justifyContent="center" m={10} >
+        <Typography variant="h1" align="center" color="primary" >
+        {questions[currentQuestion].questionText}
+        </Typography>
+      </Box>
+
+      {questions[currentQuestion].answerOptions.map((answerOption) => (
+        <Box display="flex" justifyContent="center" m={2}>
+          <Button variant="contained" style={{maxWidth: '500px', maxHeight: '50px', minWidth: '500px', minHeight: '50px', fontSize: '40px'}} onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>
+            {answerOption.answerText}
+          </Button>
+        </Box>
+			))}
+    </>
 	);
 }
 

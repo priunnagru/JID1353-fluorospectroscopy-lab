@@ -1,0 +1,323 @@
+/* This source code is exported from pxCode, you can get more document from https://www.pxcode.io */
+@import "utils";
+
+$font_type0: 500 72px/1.2 "Roboto Slab", Helvetica, Arial, serif;
+$font_type1: 26px/1.8 "Roboto Slab", Helvetica, Arial, serif;
+$font_type2: 36px/1.3 "Roboto Slab", Helvetica, Arial, serif;
+
+.block {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+}
+.block_layout {
+  position: relative;
+  overflow: hidden;
+  min-height: 982px;
+  flex-grow: 1;
+}
+.hero_title {
+  overflow: visible;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin: 0px;
+  font: $font_type0;
+  color: rgb(171, 153, 94);
+  text-align: center;
+  letter-spacing: 0px;
+  white-space: pre-wrap;
+  @include lg {
+    font-size: 63px;
+    text-align: center;
+  }
+  @include md {
+    font-size: 53px;
+  }
+  @include sm {
+    font-size: 44px;
+  }
+  @include xs {
+    font-size: 40px;
+  }
+  @include xxs {
+    font-size: 36px;
+  }
+  @include tn {
+    font-size: 33px;
+  }
+}
+.hero_title_box {
+  @include h-center-content;
+  @include lg {
+    align-items: flex-start;
+    justify-content: center;
+  }
+  @include md {
+    align-items: flex-start;
+    justify-content: center;
+  }
+  @include sm {
+    align-items: flex-start;
+    justify-content: center;
+  }
+  @include xs {
+    align-items: flex-start;
+    justify-content: center;
+  }
+  @include xxs {
+    align-items: flex-start;
+    justify-content: center;
+  }
+  @include tn {
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+.hero_title_box_layout {
+  position: absolute;
+  top: 345px;
+  height: 173px;
+  left: -6px;
+  width: 1523px;
+}
+.flex {
+  @include flex-column;
+}
+.flex_layout {
+  position: relative;
+  height: min-content;
+  flex-grow: 1;
+  margin: 31px 17px;
+  @include lg {
+    margin: 27px 15px;
+  }
+  @include md {
+    margin: 23px 13px;
+  }
+  @include sm {
+    margin: 19px 11px;
+  }
+  @include xs {
+    margin: 18px 10px;
+  }
+  @include xxs {
+    margin: 16px 9px;
+  }
+  @include tn {
+    margin: 15px 8px;
+  }
+}
+.flex1 {
+  display: flex;
+}
+.flex1_layout {
+  position: relative;
+  height: min-content;
+}
+.flex1_item {
+  @include flex-item(0, 1, 291px);
+}
+.image {
+  background: var(--src) center center / contain no-repeat;
+}
+.image_layout {
+  position: relative;
+  height: 103px;
+  flex-grow: 1;
+  margin: 0px 0px 32px;
+  @include lg {
+    margin: 0px 0px 28px;
+  }
+  @include md {
+    margin: 0px 0px 24px;
+  }
+  @include sm {
+    margin: 0px 0px 20px;
+  }
+  @include xs {
+    margin: 0px 0px 18px;
+  }
+  @include xxs {
+    margin: 0px 0px 16px;
+  }
+  @include tn {
+    margin: 0px 0px 15px;
+  }
+}
+.flex1_spacer {
+  @include flex-item(0, 1, 922px);
+}
+.flex1_item1 {
+  @include flex-item(0, 1, 107px);
+}
+.flex2 {
+  @include flex-column;
+}
+.flex2_layout {
+  position: relative;
+  height: min-content;
+  flex-grow: 1;
+  margin: 1px 0px 0px;
+}
+.cover_block2 {
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+  object-fit: contain;
+  object-position: center top;
+}
+.cover_block2_layout {
+  position: relative;
+  width: 84px;
+  min-width: 84px;
+  margin: 0px 14px 0px 9px;
+  @include lg {
+    margin: 0px 12px 0px 9px;
+  }
+  @include md {
+    margin: 0px 10px 0px 9px;
+  }
+  @include sm {
+    margin: 0px 9px;
+  }
+  @include xs {
+    margin: 0px 8px 0px 9px;
+  }
+  @include xxs {
+    margin: 0px 7px 0px 9px;
+  }
+}
+.medium_title {
+  @include font-face($font_type1, rgb(0, 45, 87), 0px);
+  @include lg {
+    font-size: 24px;
+    text-align: left;
+  }
+  @include md {
+    font-size: 21px;
+  }
+  @include sm {
+    font-size: 19px;
+  }
+  @include xs {
+    font-size: 18px;
+  }
+  @include xxs {
+    font-size: 17px;
+  }
+}
+.medium_title_layout {
+  position: relative;
+  height: min-content;
+  margin: 3px 0px 0px;
+}
+.flex1_spacer1 {
+  @include flex-item(0, 1, 34px);
+}
+.flex1_item2 {
+  @include flex-item(0, 1, 116px);
+}
+.flex3 {
+  @include flex-column;
+}
+.flex3_layout {
+  position: relative;
+  height: min-content;
+  flex-grow: 1;
+}
+.cover_block1 {
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+  object-fit: contain;
+  object-position: center top;
+}
+.cover_block1_layout {
+  position: relative;
+  width: 116px;
+  height: 100px;
+  min-width: 116px;
+}
+.medium_title_layout1 {
+  position: relative;
+  height: min-content;
+  margin: 4px 2px 0px 9px;
+}
+.content_box {
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+  object-fit: contain;
+  object-position: center top;
+}
+.flex4 {
+  display: flex;
+}
+.flex4_layout {
+  position: relative;
+  height: min-content;
+  margin: 198px 34px 4px;
+  @include lg {
+    margin: 157px 30px 4px;
+  }
+  @include md {
+    margin: 112px 25px 4px;
+  }
+  @include sm {
+    margin: 73px 21px 4px;
+  }
+  @include xs {
+    margin: 54px 19px 4px;
+  }
+  @include xxs {
+    margin: 35px 17px 4px;
+  }
+  @include tn {
+    margin: 22px 15px 4px;
+  }
+}
+.flex4_item {
+  @include flex-item(0, 1, 57px);
+}
+.block1 {
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+  object-fit: contain;
+  object-position: center top;
+}
+.block1_layout {
+  position: relative;
+  width: 57px;
+  min-width: 57px;
+}
+.flex4_spacer {
+  @include flex-item(0, 1, 13px);
+}
+.hero_title2 {
+  @include font-face($font_type2, rgb(171, 153, 94), 0px);
+  @include lg {
+    font-size: 32px;
+    text-align: left;
+  }
+  @include md {
+    font-size: 29px;
+  }
+  @include sm {
+    font-size: 25px;
+  }
+  @include xs {
+    font-size: 24px;
+  }
+  @include xxs {
+    font-size: 22px;
+  }
+  @include tn {
+    font-size: 21px;
+  }
+}
+.hero_title2_layout {
+  position: relative;
+  flex: 0 0 auto;
+  height: min-content;
+  margin: 9px 0px 8px;
+}

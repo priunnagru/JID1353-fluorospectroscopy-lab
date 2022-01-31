@@ -52,22 +52,33 @@ const Tutorial = () => {
 	];
 
 	const [currentQuestion, setCurrentQuestion] = useState(0);
-
+	
 	const handleAnswerOptionClick = (isCorrect) => {
 		if (isCorrect) {
       const nextQuestion = currentQuestion + 1;
       if (nextQuestion < questions.length) {
         setCurrentQuestion(nextQuestion);
-      }
+      } 
+
 		}
 	};
 
   return (
     <>
-	<div display= "flex" className={`menu${cn(styles.block_layout, styles.block)}`}>
+	    <div display= "flex" className={`menu${cn(styles.block_layout, styles.block)}`}>
+        <>
+	      { currentQuestion + 1 != questions.length ?
+        <Box display="flex" justifyContent="center" m={10} >
+          <Typography variant="h1" align="center" color="primary" >
+            {"Question " + (currentQuestion + 1) + "/" + (questions.length -1)}
+        </Typography>
+      </Box>
+      :
+      <></>
+      }</>
       <Box display="flex" justifyContent="center" m={10} >
         <Typography variant="h1" align="center" color="primary" >
-        {questions[currentQuestion].questionText}
+          {questions[currentQuestion].questionText}
         </Typography>
       </Box>
 

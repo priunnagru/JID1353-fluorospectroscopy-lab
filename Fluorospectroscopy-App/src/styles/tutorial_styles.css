@@ -1,0 +1,36 @@
+.paper-header {
+    padding: 20px;
+}
+
+.general-text {
+    padding: 10px;
+}
+
+.home-button {
+    background-image: url("../resources/home.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
+    width: 80px;
+    border: none;
+    background-color: transparent;
+}
+
+.home-button:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.title-and-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.header-buttons {
+    margin-left: auto;
+}
+
+.header-title {
+    
+}

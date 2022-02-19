@@ -1,11 +1,11 @@
 import { Button, Typography, Box, Paper, LinearProgress } from '@mui/material';
 import TechGold from '../../resources/GeorgiaTech_TechGold.png'
-import Tryptophan from '../../resources/tutorial/tryptophan.svg'
+import ImageA from '../../resources/tutorial/image2.svg'
 import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
 
-const TutorialNewB = () => {
+const TutorialNewD = () => {
   return (
     <>
       <header>
@@ -28,47 +28,37 @@ const TutorialNewB = () => {
             </div>
           </div>
 
-          <LinearProgress color="secondary" variant="determinate" value={(100.0/15) * 1} />
+          <LinearProgress color="secondary" variant="determinate" value={(100.0/15) * 3} />
         </Paper>
       </header>
 
       <div className="tutorial-body">
         <Typography className= "general-text" variant="h3" color="secondary">
-          A fluorophore is required in order to conduct a fluorescence experiment
+          Fluorescence will always occur at a longer wavelength than the excitation wavelength...
         </Typography>
 
         <div className="side-by-side-container">
-          <Paper className="paper-tryptophan" elevation={10}>
-            <img className="tryptophan" src={Tryptophan} alt="Tryptophan" />
-
-            <Typography className= "general-text" variant="h7">
-              Source: Wikipedia
-            </Typography>
-          </Paper>
-
           <div className="bulleted-info">
             <ul>
               <li>
                 <Typography className= "general-text" variant="h4">
-                  Tryptophan, Trp, W
+                  Excite Trp at 280 nm - what fluorescence emission peak is observed?
                 </Typography>
               </li>
               <li>
                 <Typography className= "general-text" variant="h4">
-                  Amino acid with a hydrophobic side chain
-                </Typography>
-              </li>
-              <li>
-                <Typography className= "general-text" variant="h4">
-                  Side chain has a conjugated ring system
+                  Excite Trp at ____ nm - what is observed?
                 </Typography>
               </li>
             </ul>
           </div>
+          <Paper className="paper-img1" elevation={10}>
+            <img className="img1" src={ImageA}/>
+          </Paper>
         </div>
 
         <Box display="flex" justifyContent="right" m={0}>
-          <Button variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/tutorial/2">
+          <Button variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/tutorial/4">
             Next
           </Button>
         </Box>
@@ -77,4 +67,4 @@ const TutorialNewB = () => {
   );
 }
 
-export default TutorialNewB;
+export default TutorialNewD;

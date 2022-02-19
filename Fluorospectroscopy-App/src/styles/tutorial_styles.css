@@ -52,6 +52,15 @@
     padding: 10px;
 }
 
+.paper-img1 {
+    width: 90%;
+    padding: 20px;
+}
+
 .bulleted-info {
     padding: 20px;
+}
+
+.img1 {
+    width: 100%;
 }

@@ -1,11 +1,11 @@
 import { Button, Typography, Box, Paper, LinearProgress } from '@mui/material';
 import TechGold from '../../resources/GeorgiaTech_TechGold.png'
-import ImageA from '../../resources/tutorial/image1.svg'
+import ImageA from '../../resources/tutorial/image3.svg'
 import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
 
-const TutorialNewC = () => {
+const TutorialNewE = () => {
   return (
     <>
       <header>
@@ -35,7 +35,7 @@ const TutorialNewC = () => {
       <div className="tutorial-body">
         <div className="side-by-side-container">
           <Typography className= "general-text" variant="h3" color="secondary">
-            Every fluorophore has a unique excitation wavelength (i.e. absorption peak).
+            Scanning over a range that includes the excitation usually drowns out the emission.
           </Typography>
 
           <Paper className="paper-img1" elevation={10}>
@@ -53,4 +53,4 @@ const TutorialNewC = () => {
   );
 }
 
-export default TutorialNewC;
+export default TutorialNewE;

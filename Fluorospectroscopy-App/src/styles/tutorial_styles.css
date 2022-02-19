@@ -28,9 +28,30 @@
 }
 
 .header-buttons {
+    display: flex;
     margin-left: auto;
+    align-items: center;
 }
 
-.header-title {
-    
+.tutorial-body {
+    padding: 50px;
+}
+
+.tryptophan {
+    width: 100%;
+}
+
+.side-by-side-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.paper-tryptophan {
+    width: 35%;
+    padding: 10px;
+}
+
+.bulleted-info {
+    padding: 20px;
 }

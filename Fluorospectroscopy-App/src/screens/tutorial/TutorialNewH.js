@@ -38,7 +38,7 @@ const TutorialNewH = () => {
             </div>
           </div>
 
-          <LinearProgress color="secondary" variant="determinate" value={(100.0/15) * 7} />
+          <LinearProgress color="secondary" variant="determinate" value={(100.0/13) * 7} />
         </Paper>
       </header>
 

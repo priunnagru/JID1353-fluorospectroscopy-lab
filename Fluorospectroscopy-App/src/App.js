@@ -11,6 +11,11 @@ import TutorialNewF from './screens/tutorial/TutorialNewF'
 import TutorialNewG from './screens/tutorial/TutorialNewG'
 import TutorialNewH from './screens/tutorial/TutorialNewH'
 import TutorialNewI from './screens/tutorial/TutorialNewI'
+import TutorialNewJ from './screens/tutorial/TutorialNewJ'
+import TutorialNewK from './screens/tutorial/TutorialNewK'
+import TutorialNewL from './screens/tutorial/TutorialNewL'
+import TutorialNewM from './screens/tutorial/TutorialNewM'
+import TutorialNewN from './screens/tutorial/TutorialNewN'
 import Lab from './screens/Lab'
 import Settings from './screens/Settings'
 import ScrollToTop from './ScrollToTop'
@@ -31,6 +36,11 @@ function App() {
         <Route path="/tutorial/6" element={<TutorialNewG />}/>
         <Route path="/tutorial/7" element={<TutorialNewH />}/>
         <Route path="/tutorial/8" element={<TutorialNewI />}/>
+        <Route path="/tutorial/9" element={<TutorialNewJ />}/>
+        <Route path="/tutorial/10" element={<TutorialNewK />}/>
+        <Route path="/tutorial/11" element={<TutorialNewL />}/>
+        <Route path="/tutorial/12" element={<TutorialNewM />}/>
+        <Route path="/tutorial/13" element={<TutorialNewN />}/>
 
         <Route path="/lab" element={<Lab />}/>
         <Route path="/settings" element={<Settings />}/>

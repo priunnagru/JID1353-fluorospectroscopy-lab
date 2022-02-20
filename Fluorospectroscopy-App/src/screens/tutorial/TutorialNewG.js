@@ -37,7 +37,7 @@ const TutorialNewG = () => {
             </div>
           </div>
 
-          <LinearProgress color="secondary" variant="determinate" value={(100.0/15) * 6} />
+          <LinearProgress color="secondary" variant="determinate" value={(100.0/13) * 6} />
         </Paper>
       </header>
 

@@ -1,11 +1,12 @@
 import { Button, Typography, Box, Paper, LinearProgress } from '@mui/material';
 import TechGold from '../../resources/GeorgiaTech_TechGold.png'
-import ImageA from '../../resources/tutorial/image2.svg'
+import ImageA from '../../resources/tutorial/image18.svg'
+import ImageB from '../../resources/tutorial/image19.svg'
 import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
 
-const TutorialNewD = () => {
+const TutorialNewM = () => {
   return (
     <>
       <header>
@@ -28,37 +29,36 @@ const TutorialNewD = () => {
             </div>
           </div>
 
-          <LinearProgress color="secondary" variant="determinate" value={(100.0/13) * 3} />
+          <LinearProgress color="secondary" variant="determinate" value={(100.0/13) * 12} />
         </Paper>
       </header>
 
       <div className="tutorial-body">
-        <Typography className= "general-text" variant="h3" color="secondary">
-          Fluorescence will always occur at a longer wavelength than the excitation wavelength...
+        <Typography className= "general-text-extra" variant="h3" color="secondary">
+          Sample concentration affects fluorescence intensity
         </Typography>
-
         <div className="side-by-side-container">
-          <div className="bulleted-info">
-            <ul>
-              <li>
-                <Typography className= "general-text" variant="h4">
-                  Excite Trp at 280 nm - what fluorescence emission peak is observed?
-                </Typography>
-              </li>
-              <li>
-                <Typography className= "general-text" variant="h4">
-                  Excite Trp at ____ nm - what is observed?
-                </Typography>
-              </li>
-            </ul>
+          <div className="vertical-container">
+            <Paper className="paper-img1" elevation={10}>
+              <img className="img2" src={ImageA} alt=""/>
+            </Paper>
+            <Typography className= "general-text" variant="h6">
+              [Trp] = 25 nM
+            </Typography>
           </div>
-          <Paper className="paper-img1" elevation={10}>
-            <img className="img1" src={ImageA} alt=""/>
-          </Paper>
+
+          <div className="vertical-container">
+            <Paper className="paper-img1" elevation={10}>
+              <img className="img2" src={ImageB} alt=""/>
+            </Paper>
+            <Typography className= "general-text" variant="h6">
+            [Trp] = 250 nM
+            </Typography>
+          </div>
         </div>
 
         <Box display="flex" justifyContent="right" m={0}>
-          <Button variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/tutorial/4">
+          <Button variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/tutorial/13">
             Next
           </Button>
         </Box>
@@ -67,4 +67,4 @@ const TutorialNewD = () => {
   );
 }
 
-export default TutorialNewD;
+export default TutorialNewM;

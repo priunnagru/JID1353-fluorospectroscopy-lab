@@ -4,7 +4,7 @@ import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
 
-const TutorialNewA = () => {
+const TutorialNewN = () => {
   return (
     <>
       <header>
@@ -27,26 +27,25 @@ const TutorialNewA = () => {
             </div>
           </div>
 
-          <LinearProgress color="secondary" variant="determinate" value={(100.0/13) * 0} />
+          <LinearProgress color="secondary" variant="determinate" value={(100.0/13) * 13} />
         </Paper>
       </header>
 
       <div className="tutorial-body">
         <Box display="flex" justifyContent="center" m={2}>
           <Typography className= "general-text" variant="h2" color="secondary">
-            What is fluoresence?
+            You have completed the tutorial. Return Home and start a simulation!
           </Typography>
         </Box>
 
         <Box display="flex" justifyContent="center" m={2}>
-          <Button variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/tutorial/1">
-            Begin
+          <Button variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/">
+            Home
           </Button>
         </Box>
       </div>
-
     </>
   );
 }
 
-export default TutorialNewA;
+export default TutorialNewN;

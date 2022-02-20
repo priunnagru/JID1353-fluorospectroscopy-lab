@@ -77,6 +77,13 @@
     justify-content: space-around;
 }
 
+.side-by-side-container-align {
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .paper-tryptophan {
     width: 35%;
     padding: 10px;
@@ -107,5 +114,14 @@
     border-radius: 30px;
     border: solid;
     border-color: #003057;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.popup-error {
+    padding: 30px;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    border: solid;
+    border-color: red;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

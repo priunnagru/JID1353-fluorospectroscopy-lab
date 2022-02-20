@@ -85,6 +85,8 @@
 .paper-img1 {
     width: 90%;
     padding: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .bulleted-info {
@@ -105,4 +107,5 @@
     border-radius: 30px;
     border: solid;
     border-color: #003057;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

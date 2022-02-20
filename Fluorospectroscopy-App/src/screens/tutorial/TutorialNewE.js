@@ -28,23 +28,23 @@ const TutorialNewE = () => {
             </div>
           </div>
 
-          <LinearProgress color="secondary" variant="determinate" value={(100.0/15) * 2} />
+          <LinearProgress color="secondary" variant="determinate" value={(100.0/15) * 4} />
         </Paper>
       </header>
 
       <div className="tutorial-body">
         <div className="side-by-side-container">
-          <Typography className= "general-text" variant="h3" color="secondary">
+          <Typography className= "general-text-extra" variant="h3" color="secondary">
             Scanning over a range that includes the excitation usually drowns out the emission.
           </Typography>
 
           <Paper className="paper-img1" elevation={10}>
-            <img className="img1" src={ImageA}/>
+            <img className="img1" src={ImageA} alt=""/>
           </Paper>
         </div>
 
         <Box display="flex" justifyContent="right" m={0}>
-          <Button variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/tutorial/3">
+          <Button variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/tutorial/5">
             Next
           </Button>
         </Box>

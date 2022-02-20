@@ -34,12 +34,12 @@ const TutorialNewC = () => {
 
       <div className="tutorial-body">
         <div className="side-by-side-container">
-          <Typography className= "general-text" variant="h3" color="secondary">
+          <Typography className= "general-text-extra" variant="h3" color="secondary">
             Every fluorophore has a unique excitation wavelength (i.e. absorption peak).
           </Typography>
 
           <Paper className="paper-img1" elevation={10}>
-            <img className="img1" src={ImageA}/>
+            <img className="img1" src={ImageA} alt=""/>
           </Paper>
         </div>
 

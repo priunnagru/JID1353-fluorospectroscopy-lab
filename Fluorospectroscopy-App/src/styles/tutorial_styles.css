@@ -6,6 +6,30 @@
     padding: 10px;
 }
 
+.general-text-extra {
+    padding: 50px;
+}
+
+.general-text-quiz {
+    padding: 20px;
+    background-color: lightblue;
+    background-clip: padding-box;
+    border-radius: 25px;
+    transition: padding 100ms;
+}
+
+.general-text-quiz:hover {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #B3A369;
+    transition: padding-top padding-bottom 200ms;
+    cursor: pointer;
+}
+
+.general-text-quiz-div {
+    padding: 20px;
+}
+
 .home-button {
     background-image: url("../resources/home.png");
     background-size: contain;
@@ -47,6 +71,12 @@
     padding: 20px;
 }
 
+.side-by-side-container-quiz {
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+}
+
 .paper-tryptophan {
     width: 35%;
     padding: 10px;
@@ -63,4 +93,16 @@
 
 .img1 {
     width: 100%;
+}
+
+.img2 {
+    width: 80%;
+}
+
+.popup-correct {
+    padding: 30px;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    border: solid;
+    border-color: #003057;
 }

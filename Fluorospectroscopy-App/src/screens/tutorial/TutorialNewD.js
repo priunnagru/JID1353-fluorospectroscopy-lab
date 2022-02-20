@@ -53,7 +53,7 @@ const TutorialNewD = () => {
             </ul>
           </div>
           <Paper className="paper-img1" elevation={10}>
-            <img className="img1" src={ImageA}/>
+            <img className="img1" src={ImageA} alt=""/>
           </Paper>
         </div>
 

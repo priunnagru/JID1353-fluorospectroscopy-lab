@@ -1,107 +1,52 @@
-import { Button, Typography, Box } from '@mui/material';
-import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Menu from './screens/Menu'
+import Tutorial from './screens/Tutorial'
+import TutorialNewA from './screens/tutorial/TutorialNewA'
+import TutorialNewB from './screens/tutorial/TutorialNewB'
+import TutorialNewC from './screens/tutorial/TutorialNewC'
+import TutorialNewD from './screens/tutorial/TutorialNewD'
+import TutorialNewE from './screens/tutorial/TutorialNewE'
+import TutorialNewF from './screens/tutorial/TutorialNewF'
+import TutorialNewG from './screens/tutorial/TutorialNewG'
+import TutorialNewH from './screens/tutorial/TutorialNewH'
+import TutorialNewI from './screens/tutorial/TutorialNewI'
+import TutorialNewJ from './screens/tutorial/TutorialNewJ'
+import TutorialNewK from './screens/tutorial/TutorialNewK'
+import TutorialNewL from './screens/tutorial/TutorialNewL'
+import TutorialNewM from './screens/tutorial/TutorialNewM'
+import TutorialNewN from './screens/tutorial/TutorialNewN'
+import Lab from './screens/Lab'
+import Settings from './screens/Settings'
+import ScrollToTop from './ScrollToTop'
 
 function App() {
-  const [current, setCurrent] = useState('Menu');
+  return (
+    <Router>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Menu />}/>
 
-  const MenuScreen = (
-    <>
-      <Box display="flex" justifyContent="center" m={5}>
-        <Typography variant="h1" align="center" color="primary">
-          Virtual Spectroscopy Lab
-        </Typography>
-      </Box>
+        <Route path="/tutorial" element={<TutorialNewA />}/>
+        <Route path="/tutorial/1" element={<TutorialNewB />}/>
+        <Route path="/tutorial/2" element={<TutorialNewC />}/>
+        <Route path="/tutorial/3" element={<TutorialNewD />}/>
+        <Route path="/tutorial/4" element={<TutorialNewE />}/>
+        <Route path="/tutorial/5" element={<TutorialNewF />}/>
+        <Route path="/tutorial/6" element={<TutorialNewG />}/>
+        <Route path="/tutorial/7" element={<TutorialNewH />}/>
+        <Route path="/tutorial/8" element={<TutorialNewI />}/>
+        <Route path="/tutorial/9" element={<TutorialNewJ />}/>
+        <Route path="/tutorial/10" element={<TutorialNewK />}/>
+        <Route path="/tutorial/11" element={<TutorialNewL />}/>
+        <Route path="/tutorial/12" element={<TutorialNewM />}/>
+        <Route path="/tutorial/13" element={<TutorialNewN />}/>
 
-      <Box display="flex" justifyContent="center" m={2}>
-        <Button variant="contained"
-          onClick={() => {
-            setCurrent(TutorialScreen);
-          }}
-        >
-          Start Tutorial
-        </Button>
-      </Box>
-
-      <Box display="flex" justifyContent="center" m={2}>
-        <Button variant="contained"
-          onClick={() => {
-            setCurrent(LabScreen);
-          }}
-        >
-          Start Lab Simulation
-        </Button>
-      </Box>
-
-      <Box display="flex" justifyContent="center" m={2}>
-        <Button variant="contained" color="secondary"
-            onClick={() => {
-              setCurrent(SettingsScreen);
-            }}
-          >
-            Settings
-        </Button>
-      </Box>
-    </>
+        <Route path="/lab" element={<Lab />}/>
+        <Route path="/settings" element={<Settings />}/>
+      </Routes>
+    </Router>
   );
-
-  const TutorialScreen = (
-    <>
-      <Box display="flex" m={2}>
-        <Button variant="contained" color="secondary"
-            onClick={() => {
-              setCurrent(MenuScreen);
-            }}
-          >
-            Back
-        </Button>
-      </Box>
-      <Box display="flex" justifyContent="center" m={5}>
-        <Typography variant="h2" align="center" color="primary">
-          Tutorial
-        </Typography>
-      </Box>
-    </>
-  );
-  
-  const LabScreen = (
-    <>
-      <Box display="flex" m={2}>
-        <Button variant="contained" color="secondary"
-            onClick={() => {
-              setCurrent(MenuScreen);
-            }}
-          >
-            Back
-        </Button>
-      </Box>
-      <Box display="flex" justifyContent="center" m={5}>
-        <Typography variant="h2" align="center" color="primary">
-          Lab Simulation
-        </Typography>
-      </Box>
-    </>
-  );
-
-  const SettingsScreen = (
-    <>
-      <Box display="flex" m={2}>
-        <Button variant="contained" color="secondary"
-            onClick={() => {
-              setCurrent(MenuScreen);
-            }}
-          >
-            Back
-        </Button>
-      </Box>
-      <Box display="flex" justifyContent="center" m={5}>
-        <Typography variant="h2" align="center" color="secondary">
-          Settings
-        </Typography>
-      </Box>
-    </>
-  );
-
-  return current === 'Menu' ? MenuScreen : current;
 }
 
 export default App;

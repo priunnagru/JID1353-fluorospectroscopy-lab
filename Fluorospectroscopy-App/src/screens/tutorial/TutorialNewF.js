@@ -7,13 +7,25 @@ import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
 import Popup from 'reactjs-popup';
+import Correct from '../../resources/sounds/correct-6033.mp3'
+import Incorrect from '../../resources/sounds/wrong-buzzer-6268.mp3'
 
 const TutorialNewF = () => {
+  var correct_audio = new Audio(Correct);
+  correct_audio.volume = 0.3;
   const correctRef = useRef();
-  const openCorrectPopup = () => correctRef.current.open();
+  const openCorrectPopup = () => {
+    correct_audio.play();
+    correctRef.current.open();
+  }
 
+  var incorrect_audio = new Audio(Incorrect);
+  incorrect_audio.volume = 0.05;
   const incorrectRef = useRef();
-  const openIncorrectPopup = () => incorrectRef.current.open();
+  const openIncorrectPopup = () => {
+    incorrect_audio.play();
+    incorrectRef.current.open();
+  }
 
   return (
     <>
@@ -51,16 +63,16 @@ const TutorialNewF = () => {
             <Paper className="paper-img1" elevation={10}>
               <img className="img2" src={ImageA} alt=""/>
             </Paper>
-            <Typography className= "general-text" variant="h6">
-              Excitation/Emission Bandwidth = 5nm
+            <Typography className= "general-text" variant="h5">
+              Excitation/Emission Bandwidth = 5 nm
             </Typography>
           </div>
           <div className="vertical-container">
             <Paper className="paper-img1" elevation={10}>
               <img className="img2" src={ImageB} alt=""/>
             </Paper>
-            <Typography className= "general-text" variant="h6">
-              Excitation/Emission Bandwidth = 10nm
+            <Typography className= "general-text" variant="h5">
+              Excitation/Emission Bandwidth = 10 nm
             </Typography>
           </div>
         </div>

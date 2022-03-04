@@ -16,7 +16,7 @@ const TutorialNewA = () => {
 
             <div className="header-title">
               <Typography className= "general-text" variant="h2" color="primary">
-                Fluorospectroscopy Tutorial
+                Fluorescense Spectroscopy Tutorial
               </Typography>
             </div>
 

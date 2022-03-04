@@ -1,0 +1,127 @@
+.paper-header {
+    padding: 20px;
+}
+
+.general-text {
+    padding: 10px;
+}
+
+.general-text-extra {
+    padding: 50px;
+}
+
+.general-text-quiz {
+    padding: 20px;
+    background-color: lightblue;
+    background-clip: padding-box;
+    border-radius: 25px;
+    transition: padding 100ms;
+}
+
+.general-text-quiz:hover {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #B3A369;
+    transition: padding-top padding-bottom 200ms;
+    cursor: pointer;
+}
+
+.general-text-quiz-div {
+    padding: 20px;
+}
+
+.home-button {
+    background-image: url("../resources/home.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
+    width: 80px;
+    border: none;
+    background-color: transparent;
+}
+
+.home-button:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.title-and-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.header-buttons {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+}
+
+.tutorial-body {
+    padding: 50px;
+}
+
+.tryptophan {
+    width: 100%;
+}
+
+.side-by-side-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.side-by-side-container-quiz {
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+}
+
+.side-by-side-container-align {
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.paper-tryptophan {
+    width: 35%;
+    padding: 10px;
+}
+
+.paper-img1 {
+    width: 90%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.bulleted-info {
+    padding: 20px;
+}
+
+.img1 {
+    width: 100%;
+}
+
+.img2 {
+    width: 80%;
+}
+
+.popup-correct {
+    padding: 30px;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    border: solid;
+    border-color: #003057;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.popup-error {
+    padding: 30px;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    border: solid;
+    border-color: red;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

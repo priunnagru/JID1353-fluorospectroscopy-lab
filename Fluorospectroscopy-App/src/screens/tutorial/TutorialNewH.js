@@ -8,13 +8,25 @@ import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
 import Popup from 'reactjs-popup';
+import Correct from '../../resources/sounds/correct-6033.mp3'
+import Incorrect from '../../resources/sounds/wrong-buzzer-6268.mp3'
 
 const TutorialNewH = () => {
+  var correct_audio = new Audio(Correct);
+  correct_audio.volume = 0.3;
   const correctRef = useRef();
-  const openCorrectPopup = () => correctRef.current.open();
+  const openCorrectPopup = () => {
+    correct_audio.play();
+    correctRef.current.open();
+  }
 
+  var incorrect_audio = new Audio(Incorrect);
+  incorrect_audio.volume = 0.05;
   const incorrectRef = useRef();
-  const openIncorrectPopup = () => incorrectRef.current.open();
+  const openIncorrectPopup = () => {
+    incorrect_audio.play();
+    incorrectRef.current.open();
+  }
 
   return (
     <>

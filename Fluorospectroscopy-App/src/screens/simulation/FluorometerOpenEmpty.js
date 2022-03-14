@@ -3,6 +3,7 @@ import TechGold from '../../resources/GeorgiaTech_TechGold.png'
 import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
+import FluorometerOpenEmpty from '../../resources/simulation/top-view-_2_.svg'
 
 const Fluorometer = () => {
   return (
@@ -16,7 +17,7 @@ const Fluorometer = () => {
 
             <div className="header-title">
               <Typography className= "general-text" variant="h2" color="primary">
-                Fluorescense Spectroscopy Tutorial
+                Fluorescense Spectroscopy Simulation
               </Typography>
             </div>
 
@@ -26,23 +27,13 @@ const Fluorometer = () => {
               </Link>
             </div>
           </div>
-
-          <LinearProgress color="secondary" variant="determinate" value={(100.0/13) * 0} />
         </Paper>
       </header>
 
-      <div className="tutorial-body">
-        <Box display="flex" justifyContent="center" m={2}>
-          <Typography className= "general-text" variant="h2" color="secondary">
-            What is fluoresence?
-          </Typography>
-        </Box>
-
-        <Box display="flex" justifyContent="center" m={2}>
-          <Button variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/tutorial/1">
-            Begin
-          </Button>
-        </Box>
+      <div className='fluorometer-body'>
+        <div className='center'>
+          <img className="FluorometerOpenEmpty" src={FluorometerOpenEmpty} alt="FluorometerOpenEmpty" />
+        </div>
       </div>
 
     </>

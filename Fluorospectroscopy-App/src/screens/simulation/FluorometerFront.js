@@ -11,6 +11,11 @@ import Popup from 'reactjs-popup';
 
 const FluorometerFront = () => {
   var fluorometer_image = FluorometerFrontClosed;
+  const Initialize = () => {
+    sessionStorage.setItem("bIsActivated", false);
+    sessionStorage.setItem("bIsOpen", false);
+    sessionStorage.setItem("bHasCuvette", false);
+  }
   return (
     <>
       <header>
@@ -43,8 +48,11 @@ const FluorometerFront = () => {
           <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerSide">
             Side
           </Button>
-          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/lab">
+          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerTop">
             Top
+          </Button>
+          <Button id="cuvette-Select" variant="contained" color="primary" onClick={Initialize}>
+            Initialize [TESTING ONLY]
           </Button>
 
         </Box>

@@ -15,14 +15,37 @@ const FluorometerTop = () => {
     cuvetteSelectionRef.current.open();
   }
 
-  var fluorometer_image = FluorometerOpenEmpty;
+  var fluorometer_image;
+  if (sessionStorage.getItem("bHasCuvette") != null)
+  {
+    if (sessionStorage.getItem("bHasCuvette") == "true")
+    {
+      fluorometer_image = FluorometerOpenNotEmpty;
+      console.log("NOT EMPTY");
+    }
+    else
+    {
+      fluorometer_image = FluorometerOpenEmpty;
+      console.log("EMPTY");
+    }
+  }
+  else
+  {
+    fluorometer_image = FluorometerOpenEmpty;
+  }
+
   const addCuvette = () => {
     document.getElementById("imgClickAndChange").src = FluorometerOpenNotEmpty;
+    sessionStorage.setItem("bHasCuvette", "true");
+    console.log(sessionStorage.getItem("bHasCuvette"));
     cuvetteSelectionRef.current.close();
   }
 
   const removeCuvette = () => {
     document.getElementById("imgClickAndChange").src = FluorometerOpenEmpty;
+    sessionStorage.setItem("bHasCuvette", "false");
+    console.log(sessionStorage.getItem("bHasCuvette"));
+    
   }
 
   return (
@@ -57,7 +80,7 @@ const FluorometerTop = () => {
           <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerSide">
             Side
           </Button>
-          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerFront">
+          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/lab">
             Front
           </Button>
           <Button id="cuvette-Select" variant="contained" color="primary" onClick={openCuvetteSelectionPopup}>

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
 import FluorometerOpenEmpty from '../../resources/simulation/Fluorometer-TopView-Empty-NoLight-Open.png'
 import FluorometerOpenNotEmpty from '../../resources/simulation/Fluorometer-TopView-NotEmpty-NoLight-Open.png'
+import FluorometerOpenNotEmptyLight from '../../resources/simulation/Fluorometer-TopView-NotEmpty-Light-Open.png'
 
 import React, { useRef } from 'react';
 import Popup from 'reactjs-popup';
@@ -20,13 +21,25 @@ const FluorometerTop = () => {
   {
     if (sessionStorage.getItem("bHasCuvette") == "true")
     {
-      fluorometer_image = FluorometerOpenNotEmpty;
-      console.log("NOT EMPTY");
+      if (sessionStorage.getItem("bIsActivate") == "true")
+      {
+        fluorometer_image = FluorometerOpenNotEmptyLight;
+      }
+      else
+      {
+        fluorometer_image = FluorometerOpenNotEmpty;
+      }
     }
     else
     {
-      fluorometer_image = FluorometerOpenEmpty;
-      console.log("EMPTY");
+      if (sessionStorage.getItem("bIsActivate") == "true")
+      {
+        fluorometer_image = FluorometerOpenNotEmptyLight; // Replace with empty but activate
+      }
+      else
+      {
+        fluorometer_image = FluorometerOpenEmpty;
+      }
     }
   }
   else
@@ -88,6 +101,9 @@ const FluorometerTop = () => {
           </Button>
           <Button id="cuvette-Select" variant="contained" color="primary" onClick={removeCuvette}>
             Remove Cuvette
+          </Button>
+          <Button id="cuvette-Select" variant="contained" color="primary">
+            Open Hood
           </Button>
         </Box>
       </div>

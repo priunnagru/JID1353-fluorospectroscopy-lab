@@ -11,6 +11,17 @@ import Popup from 'reactjs-popup';
 
 const FluorometerSide = () => {
   var fluorometer_image = FluorometerSideClosed;
+  const toggleFluorometer = () => {
+    if (sessionStorage.getItem("bIsActivate") == "true")
+    {
+      sessionStorage.setItem("bIsActivate", "false");
+    }
+    else
+    {
+      sessionStorage.setItem("bIsActivate", "true");
+    }
+  }
+
   return (
     <>
       <header>
@@ -45,6 +56,9 @@ const FluorometerSide = () => {
           </Button>
           <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/lab">
             Front
+          </Button>
+          <Button id="cuvette-Select" variant="contained" color="primary" onClick={toggleFluorometer}>
+            Toggle Fluorometer
           </Button>
         </Box>
       </div>

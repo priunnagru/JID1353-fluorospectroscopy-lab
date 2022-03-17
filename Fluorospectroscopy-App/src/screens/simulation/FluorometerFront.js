@@ -4,18 +4,47 @@ import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
 import FluorometerFrontClosed from '../../resources/simulation/Fluorometer-FrontView-Closed.png'
-
+import FluorometerFrontOpen from '../../resources/simulation/Fluorometer-FrontView-Open.png'
 
 import React, { useRef } from 'react';
-import Popup from 'reactjs-popup';
 
 const FluorometerFront = () => {
-  var fluorometer_image = FluorometerFrontClosed;
-  const Initialize = () => {
-    sessionStorage.setItem("bIsActivated", false);
-    sessionStorage.setItem("bIsOpen", false);
-    sessionStorage.setItem("bHasCuvette", false);
+  var fluorometer_image;
+  if (sessionStorage.getItem("bIsOpen") != null)
+  {
+    if (sessionStorage.getItem("bIsOpen") == "true")
+    {
+      fluorometer_image = FluorometerFrontOpen;
+    }
+    else
+    {
+      fluorometer_image = FluorometerFrontClosed;
+    }
   }
+  else
+  {
+    fluorometer_image = FluorometerFrontClosed;
+  }
+
+  const Initialize = () => {
+    sessionStorage.setItem("bIsActivated", "false");
+    sessionStorage.setItem("bIsOpen", "false");
+    sessionStorage.setItem("bHasCuvette", "false");
+  }
+
+  const openFluorometer = () => {
+    if (sessionStorage.getItem("bIsOpen") == "true")
+    {
+      document.getElementById("fluorometer-body").src = FluorometerFrontClosed;
+      sessionStorage.setItem("bIsOpen", "false");
+    }
+    else
+    {
+      document.getElementById("fluorometer-body").src = FluorometerFrontOpen;
+      sessionStorage.setItem("bIsOpen", "true");
+    }
+  }
+
   return (
     <>
       <header>
@@ -42,7 +71,7 @@ const FluorometerFront = () => {
 
       <div className='fluorometer-body'>
         <div className='center'>
-          <img className="FluorometerOpenEmpty" src={fluorometer_image} alt="FluorometerOpenEmpty" id="imgClickAndChange" width={1000}/>
+          <img className="FluorometerOpenEmpty" src={fluorometer_image} alt="FluorometerOpenEmpty" id="fluorometer-body" width={1000}/>
         </div>
         <Box display="flex" justifyContent="center" m={0} >
           <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerSide">
@@ -50,6 +79,9 @@ const FluorometerFront = () => {
           </Button>
           <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerTop">
             Top
+          </Button>
+          <Button id="cuvette-Select" variant="contained" color="primary" onClick={openFluorometer}>
+            Open/Close Hood
           </Button>
           <Button id="cuvette-Select" variant="contained" color="primary" onClick={Initialize}>
             Initialize [TESTING ONLY]

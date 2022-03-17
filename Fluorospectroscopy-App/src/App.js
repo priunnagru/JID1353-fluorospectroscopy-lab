@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Menu from './screens/Menu'
+
 import Tutorial from './screens/Tutorial'
 import TutorialNewA from './screens/tutorial/TutorialNewA'
 import TutorialNewB from './screens/tutorial/TutorialNewB'
@@ -16,6 +17,12 @@ import TutorialNewK from './screens/tutorial/TutorialNewK'
 import TutorialNewL from './screens/tutorial/TutorialNewL'
 import TutorialNewM from './screens/tutorial/TutorialNewM'
 import TutorialNewN from './screens/tutorial/TutorialNewN'
+
+import FluorometerTop from './screens/simulation/FluorometerTop'
+import FluorometerSide from './screens/simulation/FluorometerSide'
+import FluorometerFront from './screens/simulation/FluorometerFront'
+
+
 import Lab from './screens/Lab'
 import Settings from './screens/Settings'
 import ScrollToTop from './ScrollToTop'
@@ -42,7 +49,10 @@ function App() {
         <Route path="/tutorial/12" element={<TutorialNewM />}/>
         <Route path="/tutorial/13" element={<TutorialNewN />}/>
 
-        <Route path="/lab" element={<Lab />}/>
+        <Route path="/lab" element={<FluorometerFront />}/>
+        <Route path="/simulation/fluorometerSide" element={<FluorometerSide />}/>
+        <Route path="/simulation/fluorometerTop" element={<FluorometerTop />}/>
+
         <Route path="/settings" element={<Settings />}/>
       </Routes>
     </Router>

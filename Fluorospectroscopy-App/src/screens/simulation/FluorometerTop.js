@@ -124,7 +124,7 @@ const FluorometerTop = () => {
           <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerSide">
             Side
           </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/lab">
+          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerFront">
             Front
           </Button>
           <Button className="cuvette-Select" variant="contained" color="primary" onClick={openCuvetteSelectionPopup}>

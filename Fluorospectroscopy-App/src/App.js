@@ -18,7 +18,7 @@ import TutorialNewL from './screens/tutorial/TutorialNewL'
 import TutorialNewM from './screens/tutorial/TutorialNewM'
 import TutorialNewN from './screens/tutorial/TutorialNewN'
 
-import Fluorometer from './screens/simulation/FluorometerOpenEmpty'
+import Fluorometer from './screens/simulation/Fluorometer1'
 
 import Lab from './screens/Lab'
 import Settings from './screens/Settings'

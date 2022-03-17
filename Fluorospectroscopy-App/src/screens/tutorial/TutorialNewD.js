@@ -4,8 +4,14 @@ import ImageA from '../../resources/tutorial/image2.svg'
 import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
+import Popup from 'reactjs-popup';
+import React, { useRef } from 'react';
 
 const TutorialNewD = () => {
+  const imageARef = useRef();
+  const openImageAPopup = () => imageARef.current.open();
+  const closeImageAPopup = () => imageARef.current.close();
+
   return (
     <>
       <header>
@@ -53,7 +59,7 @@ const TutorialNewD = () => {
             </ul>
           </div>
           <Paper className="paper-img1" elevation={10}>
-            <img className="img1" src={ImageA} alt=""/>
+            <img className="img1" src={ImageA} alt="" onClick={openImageAPopup}/>
           </Paper>
         </div>
 
@@ -63,6 +69,15 @@ const TutorialNewD = () => {
           </Button>
         </Box>
       </div>
+
+      <Popup ref={imageARef} modal>
+        <div className="popup-img">
+          <button className="popup-close" onClick={closeImageAPopup}>
+            &times;
+          </button>
+          <img className="img1-popup" src={ImageA} alt=""/>
+        </div>
+      </Popup>
     </>
   );
 }

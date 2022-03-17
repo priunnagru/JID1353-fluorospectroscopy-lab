@@ -4,8 +4,14 @@ import Tryptophan from '../../resources/tutorial/tryptophan.svg'
 import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
+import Popup from 'reactjs-popup';
+import React, { useRef } from 'react';
 
 const TutorialNewB = () => {
+  const imageARef = useRef();
+  const openImageAPopup = () => imageARef.current.open();
+  const closeImageAPopup = () => imageARef.current.close();
+
   return (
     <>
       <header>
@@ -39,7 +45,7 @@ const TutorialNewB = () => {
 
         <div className="side-by-side-container">
           <Paper className="paper-tryptophan" elevation={10}>
-            <img className="tryptophan" src={Tryptophan} alt="Tryptophan" />
+            <img className="tryptophan" src={Tryptophan} alt="Tryptophan" onClick={openImageAPopup}/>
 
             <Typography className= "general-text" variant="h7">
               Source: Wikipedia
@@ -73,6 +79,15 @@ const TutorialNewB = () => {
           </Button>
         </Box>
       </div>
+
+      <Popup ref={imageARef} modal>
+        <div className="popup-img">
+          <button className="popup-close" onClick={closeImageAPopup}>
+            &times;
+          </button>
+          <img className="tryptophan" src={Tryptophan} alt="Tryptophan" />
+        </div>
+      </Popup>
     </>
   );
 }

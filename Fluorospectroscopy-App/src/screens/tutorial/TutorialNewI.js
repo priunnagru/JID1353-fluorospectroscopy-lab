@@ -27,6 +27,7 @@ const TutorialNewI = () => {
     incorrect_audio.play();
     incorrectRef.current.open();
   }
+  const closeIncorrectPopup = () => incorrectRef.current.close();
 
   return (
     <>
@@ -115,6 +116,9 @@ const TutorialNewI = () => {
       </Popup>
 
       <Popup ref={incorrectRef} modal>
+        <button className="popup-close" onClick={closeIncorrectPopup}>
+            &times;
+          </button>
         <div className="popup-correct">
           <Typography variant="h4" color="secondary">
             That's not it. Try again!

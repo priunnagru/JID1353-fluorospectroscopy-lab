@@ -9,6 +9,7 @@ import Popup from 'reactjs-popup';
 const TutorialNewK = () => {
   const errorRef = useRef();
   const openErrorPopup = () => errorRef.current.open();
+  const closeErrorPopup = () => errorRef.current.close();
 
   return (
     <>
@@ -69,6 +70,9 @@ const TutorialNewK = () => {
 
       <Popup ref={errorRef} modal>
         <div className="popup-error">
+          <button className="popup-close" onClick={closeErrorPopup}>
+            &times;
+          </button>
           <Typography variant="h4" color="secondary">
             The scan speed and response time do not match. Double-check your parameters!
           </Typography>

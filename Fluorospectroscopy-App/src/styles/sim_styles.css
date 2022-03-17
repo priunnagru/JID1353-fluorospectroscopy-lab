@@ -1,0 +1,94 @@
+.paper-header {
+    padding: 20px;
+}
+
+.general-text {
+    padding: 10px;
+}
+
+.general-text-extra {
+    padding: 50px;
+}
+.home-button {
+    background-image: url("../resources/home.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
+    width: 80px;
+    border: none;
+    background-color: transparent;
+}
+
+.home-button:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.title-and-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.header-buttons {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+}
+.table{
+    display: flex;
+    background-image: url(../resources/Simulation/table.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
+    height: 300px;
+    width: 80px;
+    border: none;
+    background-color: transparent;
+}
+.computer{
+    background-image: url(../resources/Simulation/monitor.png);
+    height: 428px;
+    width: 587px;
+    background-repeat: no-repeat;
+    background-position:bottom;
+    background-color: transparent;
+    background-size: contain;
+    border: none;
+}
+.cuvettes{
+    background-image: url(../resources/Simulation/cuvettes\ 3.png);
+    height: 70px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-position:bottom;
+    background-color: transparent;
+    background-size: contain;
+    border: none;
+}
+.fluoro{
+    background-image: url(../resources/Simulation/front\ view\ closed.png);
+    height: 428px;
+    width: 587px;
+    background-repeat: no-repeat;
+    background-position:bottom;
+    background-color: transparent;
+    background-size: contain;
+    border: none;
+    
+}
+.desktop{
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    align-items:flex-end;
+}
+.cuvettepopup{
+    padding: 30px;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    border: solid;
+    border-color: #003057;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

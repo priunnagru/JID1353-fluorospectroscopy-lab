@@ -2,13 +2,14 @@ import { Button, Typography, Box, Paper, LinearProgress } from '@mui/material';
 import TechGold from '../../resources/GeorgiaTech_TechGold.png'
 import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
+import NavigateNext from '@mui/icons-material/NavigateNext';
 import FluorometerOpenEmpty from '../../resources/simulation/Fluorometer-TopView-Empty-NoLight-Open.png'
 import FluorometerOpenNotEmpty from '../../resources/simulation/Fluorometer-TopView-NotEmpty-NoLight-Open.png'
 
 import React, { useRef } from 'react';
 import Popup from 'reactjs-popup';
 
-const Fluorometer1 = () => {
+const FluorometerTop = () => {
   const cuvetteSelectionRef = useRef();
   const openCuvetteSelectionPopup = () => {
     cuvetteSelectionRef.current.open();
@@ -16,10 +17,15 @@ const Fluorometer1 = () => {
   }
 
   var fluorometer_image = FluorometerOpenEmpty;
-  const changeFluorometerImage = () => {
+  const addCuvette = () => {
     console.log("FLUOROMETERCHANGE");
     document.getElementById("imgClickAndChange").src = FluorometerOpenNotEmpty;
     cuvetteSelectionRef.current.close();
+  }
+
+  const removeCuvette = () => {
+    console.log("FLUOROMETERCHANGE");
+    document.getElementById("imgClickAndChange").src = FluorometerOpenEmpty;
   }
 
   return (
@@ -50,9 +56,18 @@ const Fluorometer1 = () => {
         <div className='center'>
           <img className="FluorometerOpenEmpty" src={fluorometer_image} alt="FluorometerOpenEmpty" id="imgClickAndChange" width={1000}/>
         </div>
-        <Box display="flex" justifyContent="center" m={0}>
+        <Box display="flex" justifyContent="center" m={0} >
+          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/tutorial/8">
+            Side
+          </Button>
+          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/tutorial/8">
+            Front
+          </Button>
           <Button id="cuvette-Select" variant="contained" color="primary" onClick={openCuvetteSelectionPopup}>
             Chemicals
+          </Button>
+          <Button id="cuvette-Select" variant="contained" color="primary" onClick={removeCuvette}>
+            Remove Cuvette
           </Button>
         </Box>
       </div>
@@ -60,21 +75,21 @@ const Fluorometer1 = () => {
       <Popup ref={cuvetteSelectionRef} modal>
         <div className="popup-correct">
           <div className="side-by-side-container-quiz">
-            <div onClick={changeFluorometerImage}>
+            <div onClick={addCuvette}>
               <Box className="cuvette-button" margin={2}>
                 <Typography align='center' variant="h1">
                   A
                 </Typography>
               </Box>
             </div>
-            <div onClick={changeFluorometerImage}>
+            <div onClick={addCuvette}>
               <Box className="cuvette-button" margin={2}>
                 <Typography align='center' variant="h1">
                   B
                 </Typography>
               </Box>
             </div>
-            <div onClick={changeFluorometerImage}>
+            <div onClick={addCuvette}>
               <Box className="cuvette-button" margin={2}>
                 <Typography align='center' variant="h1">
                   C
@@ -89,4 +104,4 @@ const Fluorometer1 = () => {
   );
 }
 
-export default Fluorometer1;
+export default FluorometerTop;

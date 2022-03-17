@@ -13,18 +13,15 @@ const FluorometerTop = () => {
   const cuvetteSelectionRef = useRef();
   const openCuvetteSelectionPopup = () => {
     cuvetteSelectionRef.current.open();
-    console.log("CUVETTESELECTION");
   }
 
   var fluorometer_image = FluorometerOpenEmpty;
   const addCuvette = () => {
-    console.log("FLUOROMETERCHANGE");
     document.getElementById("imgClickAndChange").src = FluorometerOpenNotEmpty;
     cuvetteSelectionRef.current.close();
   }
 
   const removeCuvette = () => {
-    console.log("FLUOROMETERCHANGE");
     document.getElementById("imgClickAndChange").src = FluorometerOpenEmpty;
   }
 
@@ -57,10 +54,10 @@ const FluorometerTop = () => {
           <img className="FluorometerOpenEmpty" src={fluorometer_image} alt="FluorometerOpenEmpty" id="imgClickAndChange" width={1000}/>
         </div>
         <Box display="flex" justifyContent="center" m={0} >
-          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/tutorial/8">
+          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerSide">
             Side
           </Button>
-          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/tutorial/8">
+          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerFront">
             Front
           </Button>
           <Button id="cuvette-Select" variant="contained" color="primary" onClick={openCuvetteSelectionPopup}>

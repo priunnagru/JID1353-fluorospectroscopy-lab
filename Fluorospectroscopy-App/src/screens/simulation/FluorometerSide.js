@@ -3,31 +3,14 @@ import TechGold from '../../resources/GeorgiaTech_TechGold.png'
 import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
-import FluorometerOpenEmpty from '../../resources/simulation/Fluorometer-TopView-Empty-NoLight-Open.png'
-import FluorometerOpenNotEmpty from '../../resources/simulation/Fluorometer-TopView-NotEmpty-NoLight-Open.png'
+import FluorometerSideClosed from '../../resources/simulation/Fluorometer-SideView.png'
+
 
 import React, { useRef } from 'react';
 import Popup from 'reactjs-popup';
 
 const FluorometerSide = () => {
-  const cuvetteSelectionRef = useRef();
-  const openCuvetteSelectionPopup = () => {
-    cuvetteSelectionRef.current.open();
-    console.log("CUVETTESELECTION");
-  }
-
-  var fluorometer_image = FluorometerOpenEmpty;
-  const addCuvette = () => {
-    console.log("FLUOROMETERCHANGE");
-    document.getElementById("imgClickAndChange").src = FluorometerOpenNotEmpty;
-    cuvetteSelectionRef.current.close();
-  }
-
-  const removeCuvette = () => {
-    console.log("FLUOROMETERCHANGE");
-    document.getElementById("imgClickAndChange").src = FluorometerOpenEmpty;
-  }
-
+  var fluorometer_image = FluorometerSideClosed;
   return (
     <>
       <header>
@@ -57,49 +40,14 @@ const FluorometerSide = () => {
           <img className="FluorometerOpenEmpty" src={fluorometer_image} alt="FluorometerOpenEmpty" id="imgClickAndChange" width={1000}/>
         </div>
         <Box display="flex" justifyContent="center" m={0} >
-          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/tutorial/8">
-            Side
+          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/lab">
+            Top
           </Button>
-          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/tutorial/8">
+          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerFront">
             Front
-          </Button>
-          <Button id="cuvette-Select" variant="contained" color="primary" onClick={openCuvetteSelectionPopup}>
-            Chemicals
-          </Button>
-          <Button id="cuvette-Select" variant="contained" color="primary" onClick={removeCuvette}>
-            Remove Cuvette
           </Button>
         </Box>
       </div>
-
-      <Popup ref={cuvetteSelectionRef} modal>
-        <div className="popup-correct">
-          <div className="side-by-side-container-quiz">
-            <div onClick={addCuvette}>
-              <Box className="cuvette-button" margin={2}>
-                <Typography align='center' variant="h1">
-                  A
-                </Typography>
-              </Box>
-            </div>
-            <div onClick={addCuvette}>
-              <Box className="cuvette-button" margin={2}>
-                <Typography align='center' variant="h1">
-                  B
-                </Typography>
-              </Box>
-            </div>
-            <div onClick={addCuvette}>
-              <Box className="cuvette-button" margin={2}>
-                <Typography align='center' variant="h1">
-                  C
-                </Typography>
-              </Box>
-            </div>
-          </div>
-        </div>
-      </Popup>
-
     </>
   );
 }

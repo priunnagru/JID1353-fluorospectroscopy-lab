@@ -18,7 +18,10 @@ import TutorialNewL from './screens/tutorial/TutorialNewL'
 import TutorialNewM from './screens/tutorial/TutorialNewM'
 import TutorialNewN from './screens/tutorial/TutorialNewN'
 
-import Fluorometer from './screens/simulation/FluorometerTop'
+import FluorometerA from './screens/simulation/FluorometerTop'
+import FluorometerB from './screens/simulation/FluorometerSide'
+import FluorometerC from './screens/simulation/FluorometerFront'
+
 
 import Lab from './screens/Lab'
 import Settings from './screens/Settings'
@@ -46,7 +49,9 @@ function App() {
         <Route path="/tutorial/12" element={<TutorialNewM />}/>
         <Route path="/tutorial/13" element={<TutorialNewN />}/>
 
-        <Route path="/lab" element={<Fluorometer />}/>
+        <Route path="/lab" element={<FluorometerA />}/>
+        <Route path="/simulation/fluorometerSide" element={<FluorometerB />}/>
+        <Route path="/simulation/fluorometerFront" element={<FluorometerC />}/>
 
         <Route path="/settings" element={<Settings />}/>
       </Routes>

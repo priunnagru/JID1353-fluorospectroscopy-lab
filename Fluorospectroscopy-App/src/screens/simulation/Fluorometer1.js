@@ -19,6 +19,7 @@ const Fluorometer1 = () => {
   const changeFluorometerImage = () => {
     console.log("FLUOROMETERCHANGE");
     document.getElementById("imgClickAndChange").src = FluorometerOpenNotEmpty;
+    cuvetteSelectionRef.current.close();
   }
 
   return (
@@ -47,7 +48,7 @@ const Fluorometer1 = () => {
 
       <div className='fluorometer-body'>
         <div className='center'>
-          <img className="FluorometerOpenEmpty" src={fluorometer_image} alt="FluorometerOpenEmpty" id="imgClickAndChange"/>
+          <img className="FluorometerOpenEmpty" src={fluorometer_image} alt="FluorometerOpenEmpty" id="imgClickAndChange" width={1000}/>
         </div>
         <Box display="flex" justifyContent="center" m={0}>
           <Button id="cuvette-Select" variant="contained" color="primary" onClick={openCuvetteSelectionPopup}>

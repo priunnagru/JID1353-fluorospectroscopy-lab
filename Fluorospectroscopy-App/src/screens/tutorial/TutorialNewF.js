@@ -26,6 +26,14 @@ const TutorialNewF = () => {
     incorrect_audio.play();
     incorrectRef.current.open();
   }
+  const closeIncorrectPopup = () => incorrectRef.current.close();
+
+  const imageARef = useRef();
+  const openImageAPopup = () => imageARef.current.open();
+  const closeImageAPopup = () => imageARef.current.close();
+  const imageBRef = useRef();
+  const openImageBPopup = () => imageBRef.current.open();
+  const closeImageBPopup = () => imageBRef.current.close();
 
   return (
     <>
@@ -61,17 +69,17 @@ const TutorialNewF = () => {
         <div className="side-by-side-container">
           <div className="vertical-container">
             <Paper className="paper-img1" elevation={10}>
-              <img className="img2" src={ImageA} alt=""/>
+              <img className="img2" src={ImageA} alt="" onClick={openImageAPopup}/>
             </Paper>
-            <Typography className= "general-text" variant="h5">
+            <Typography className= "general-text" variant="h5" style={{ fontWeight: 600 }}>
               Excitation/Emission Bandwidth = 5 nm
             </Typography>
           </div>
           <div className="vertical-container">
             <Paper className="paper-img1" elevation={10}>
-              <img className="img2" src={ImageB} alt=""/>
+              <img className="img2" src={ImageB} alt="" onClick={openImageBPopup}/>
             </Paper>
-            <Typography className= "general-text" variant="h5">
+            <Typography className= "general-text" variant="h5" style={{ fontWeight: 600 }}>
               Excitation/Emission Bandwidth = 10 nm
             </Typography>
           </div>
@@ -117,9 +125,30 @@ const TutorialNewF = () => {
 
       <Popup ref={incorrectRef} modal>
         <div className="popup-correct">
+          <button className="popup-close" onClick={closeIncorrectPopup}>
+            &times;
+          </button>
           <Typography variant="h4" color="secondary">
             Sorry, that isn't right! Take a closer look at the Intensity of each graph.
           </Typography>
+        </div>
+      </Popup>
+
+      <Popup ref={imageARef} modal>
+        <div className="popup-img">
+          <button className="popup-close" onClick={closeImageAPopup}>
+            &times;
+          </button>
+          <img className="img1-popup" src={ImageA} alt=""/>
+        </div>
+      </Popup>
+
+      <Popup ref={imageBRef} modal>
+        <div className="popup-img">
+          <button className="popup-close" onClick={closeImageBPopup}>
+            &times;
+          </button>
+          <img className="img1-popup" src={ImageB} alt=""/>
         </div>
       </Popup>
     </>

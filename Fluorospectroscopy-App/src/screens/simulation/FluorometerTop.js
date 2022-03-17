@@ -116,6 +116,12 @@ const FluorometerTop = () => {
         </Paper>
       </header>
 
+      <Box display="flex" m={2}>
+        <Button variant="contained" component={Link} to="/lab">
+          Return to Table
+        </Button>
+      </Box>
+
       <div className='fluorometer-body'>
         <div className='center'>
           <img className="FluorometerOpenEmpty" src={fluorometer_image} alt="FluorometerOpenEmpty" id="imgClickAndChange" width={1000}/>

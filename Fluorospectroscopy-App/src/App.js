@@ -18,7 +18,7 @@ import TutorialNewL from './screens/tutorial/TutorialNewL'
 import TutorialNewM from './screens/tutorial/TutorialNewM'
 import TutorialNewN from './screens/tutorial/TutorialNewN'
 
-import TopScreen from './screens/Simulation/TopScreen'
+import TopScreen from './screens/simulation/TopScreen'
 
 import FluorometerTop from './screens/simulation/FluorometerTop'
 import FluorometerSide from './screens/simulation/FluorometerSide'

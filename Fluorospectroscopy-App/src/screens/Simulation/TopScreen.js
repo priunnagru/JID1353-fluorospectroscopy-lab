@@ -1,6 +1,6 @@
 import { Button, Typography, Box, Paper } from '@mui/material';
 import TechGold from '../../resources/GeorgiaTech_TechGold.png'
-import Table from '../../resources/Simulation/table.png'
+import Table from '../../resources/simulation/table.png'
 import '../../styles/sim_styles.css';
 import React, { useRef } from 'react';
 import Popup from 'reactjs-popup';
@@ -30,28 +30,22 @@ const TopScreen = () => {
           </div>
         </Paper>
       </header>
+      <div className="spacer"></div>
       <div className="Simulation-body">
-        <Paper>
-          <Box display="flex" justifyContent="center" m={2}>
-            <Typography className="general-text" variant="h2" color="secondary">
-              Hello all.
-            </Typography>
-          </Box>
           <Box display="flex" justifyContent="center" m={0}>
             <div classname="desktop">
               <Link to="/">
                 <button className="computer"></button>
               </Link>
               <button className="cuvettes"></button>
-              <Link to="/">
+              <Link to="/simulation/fluorometerFront">
                 <button className="fluoro"></button>
               </Link>
             </div>
           </Box>
           <div classname="table" justifyContent="center">
-            <img src={Table} alt="Table" />
+            <img className="table-img" src={Table} alt="Table" />
           </div>
-        </Paper>
       </div>
     </>
   );

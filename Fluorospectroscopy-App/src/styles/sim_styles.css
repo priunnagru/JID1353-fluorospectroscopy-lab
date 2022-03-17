@@ -37,7 +37,7 @@
 }
 .table{
     display: flex;
-    background-image: url(../resources/Simulation/table.png);
+    background-image: url(../resources/simulation/table.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -48,7 +48,7 @@
     background-color: transparent;
 }
 .computer{
-    background-image: url(../resources/Simulation/monitor.png);
+    background-image: url(../resources/simulation/monitor.png);
     height: 428px;
     width: 587px;
     background-repeat: no-repeat;
@@ -57,8 +57,12 @@
     background-size: contain;
     border: none;
 }
+.computer:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
 .cuvettes{
-    background-image: url(../resources/Simulation/cuvettes\ 3.png);
+    background-image: url(../resources/simulation/cuvettes\ 3.png);
     height: 70px;
     width: 200px;
     background-repeat: no-repeat;
@@ -68,7 +72,7 @@
     border: none;
 }
 .fluoro{
-    background-image: url(../resources/Simulation/front\ view\ closed.png);
+    background-image: url(../resources/simulation/front\ view\ closed.png);
     height: 428px;
     width: 587px;
     background-repeat: no-repeat;
@@ -76,7 +80,10 @@
     background-color: transparent;
     background-size: contain;
     border: none;
-    
+}
+.fluoro:hover {
+    background-color: lightblue;
+    cursor: pointer;
 }
 .desktop{
     display: flex;
@@ -91,4 +98,12 @@
     border: solid;
     border-color: #003057;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.table-img{
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+.spacer{
+    min-height: 20px;
 }

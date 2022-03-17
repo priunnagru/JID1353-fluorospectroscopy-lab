@@ -16,6 +16,7 @@ const FluorometerTop = () => {
     cuvetteSelectionRef.current.open();
   }
 
+  // We also need a closed version of the fluorometer from the top view
   var fluorometer_image;
   if (sessionStorage.getItem("bHasCuvette") != null)
   {
@@ -47,18 +48,48 @@ const FluorometerTop = () => {
     fluorometer_image = FluorometerOpenEmpty;
   }
 
+  const updateState = () => {
+    console.log("UPDATE");
+    if (sessionStorage.getItem("bHasCuvette") != null)
+    {
+      if (sessionStorage.getItem("bHasCuvette") == "true")
+      {
+        if (sessionStorage.getItem("bIsActivate") == "true")
+        {
+          document.getElementById("imgClickAndChange").src = FluorometerOpenNotEmptyLight;
+        }
+        else
+        {
+          document.getElementById("imgClickAndChange").src = FluorometerOpenNotEmpty;
+        }
+      }
+      else
+      {
+        if (sessionStorage.getItem("bIsActivate") == "true")
+        {
+          document.getElementById("imgClickAndChange").src = FluorometerOpenNotEmptyLight; // Replace with empty but activate
+        }
+        else
+        {
+          document.getElementById("imgClickAndChange").src = FluorometerOpenEmpty;
+        }
+      }
+    }
+    else
+    {
+      document.getElementById("imgClickAndChange").src = FluorometerOpenEmpty;
+    }
+  }
+
   const addCuvette = () => {
-    document.getElementById("imgClickAndChange").src = FluorometerOpenNotEmpty;
     sessionStorage.setItem("bHasCuvette", "true");
-    console.log(sessionStorage.getItem("bHasCuvette"));
+    updateState();
     cuvetteSelectionRef.current.close();
   }
 
   const removeCuvette = () => {
-    document.getElementById("imgClickAndChange").src = FluorometerOpenEmpty;
     sessionStorage.setItem("bHasCuvette", "false");
-    console.log(sessionStorage.getItem("bHasCuvette"));
-    
+    updateState();
   }
 
   return (
@@ -103,7 +134,7 @@ const FluorometerTop = () => {
             Remove Cuvette
           </Button>
           <Button id="cuvette-Select" variant="contained" color="primary">
-            Open Hood
+            Open/Close Hood
           </Button>
         </Box>
       </div>

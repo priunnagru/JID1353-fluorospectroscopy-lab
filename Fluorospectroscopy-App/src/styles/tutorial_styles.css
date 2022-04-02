@@ -123,8 +123,9 @@
     border-color: #003057;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     min-height: 10vh;
-    padding-top: 7vh;
+    padding-top: 9vh;
     padding-bottom: 0vh;
+    animation: fadein 0.5s;
 }
 
 .popup-error {
@@ -137,6 +138,7 @@
     min-height: 10vh;
     padding-top: 7vh;
     padding-bottom: 0vh;
+    animation: fadein 0.5s;
 }
 
 .popup-img {
@@ -188,4 +190,9 @@
 
 .cuvette-Select {
     padding: 5px;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }

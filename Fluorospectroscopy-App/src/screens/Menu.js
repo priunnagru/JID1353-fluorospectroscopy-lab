@@ -17,7 +17,7 @@ const Menu = () => {
       </Box>
 
       <Box display="flex" justifyContent="center" m={2}>
-        <Button variant="contained" component={Link} to="/simulation">
+        <Button variant="contained" component={Link} to="/lab">
           Start Lab Simulation
         </Button>
       </Box>

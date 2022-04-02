@@ -20,9 +20,9 @@ const FluorometerTop = () => {
   var fluorometer_image;
   if (sessionStorage.getItem("bHasCuvette") != null)
   {
-    if (sessionStorage.getItem("bHasCuvette") === "true")
+    if (sessionStorage.getItem("bHasCuvette") == "true")
     {
-      if (sessionStorage.getItem("bIsActivate") === "true")
+      if (sessionStorage.getItem("bIsActivate") == "true")
       {
         fluorometer_image = FluorometerOpenNotEmptyLight;
       }
@@ -33,7 +33,7 @@ const FluorometerTop = () => {
     }
     else
     {
-      if (sessionStorage.getItem("bIsActivate") === "true")
+      if (sessionStorage.getItem("bIsActivate") == "true")
       {
         fluorometer_image = FluorometerOpenNotEmptyLight; // Replace with empty but activate
       }
@@ -52,9 +52,9 @@ const FluorometerTop = () => {
     console.log("UPDATE");
     if (sessionStorage.getItem("bHasCuvette") != null)
     {
-      if (sessionStorage.getItem("bHasCuvette") === "true")
+      if (sessionStorage.getItem("bHasCuvette") == "true")
       {
-        if (sessionStorage.getItem("bIsActivate") === "true")
+        if (sessionStorage.getItem("bIsActivate") == "true")
         {
           document.getElementById("imgClickAndChange").src = FluorometerOpenNotEmptyLight;
         }
@@ -65,7 +65,7 @@ const FluorometerTop = () => {
       }
       else
       {
-        if (sessionStorage.getItem("bIsActivate") === "true")
+        if (sessionStorage.getItem("bIsActivate") == "true")
         {
           document.getElementById("imgClickAndChange").src = FluorometerOpenNotEmptyLight; // Replace with empty but activate
         }
@@ -116,30 +116,24 @@ const FluorometerTop = () => {
         </Paper>
       </header>
 
-      <Box display="flex" m={2}>
-        <Button variant="contained" component={Link} to="/simulation">
-          Return to Table
-        </Button>
-      </Box>
-
       <div className='fluorometer-body'>
         <div className='center'>
           <img className="FluorometerOpenEmpty" src={fluorometer_image} alt="FluorometerOpenEmpty" id="imgClickAndChange" width={1000}/>
         </div>
         <Box display="flex" justifyContent="center" m={0} >
-          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/side">
+          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerSide">
             Side
           </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/front">
+          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/lab">
             Front
           </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary" onClick={openCuvetteSelectionPopup}>
+          <Button id="cuvette-Select" variant="contained" color="primary" onClick={openCuvetteSelectionPopup}>
             Chemicals
           </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary" onClick={removeCuvette}>
+          <Button id="cuvette-Select" variant="contained" color="primary" onClick={removeCuvette}>
             Remove Cuvette
           </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary">
+          <Button id="cuvette-Select" variant="contained" color="primary">
             Open/Close Hood
           </Button>
         </Box>

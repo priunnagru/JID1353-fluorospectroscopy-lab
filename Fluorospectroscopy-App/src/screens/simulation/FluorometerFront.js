@@ -6,11 +6,13 @@ import NavigateNext from '@mui/icons-material/NavigateNext';
 import FluorometerFrontClosed from '../../resources/simulation/Fluorometer-FrontView-Closed.png'
 import FluorometerFrontOpen from '../../resources/simulation/Fluorometer-FrontView-Open.png'
 
+import React, { useRef } from 'react';
+
 const FluorometerFront = () => {
   var fluorometer_image;
   if (sessionStorage.getItem("bIsOpen") != null)
   {
-    if (sessionStorage.getItem("bIsOpen") === "true")
+    if (sessionStorage.getItem("bIsOpen") == "true")
     {
       fluorometer_image = FluorometerFrontOpen;
     }
@@ -31,7 +33,7 @@ const FluorometerFront = () => {
   }
 
   const openFluorometer = () => {
-    if (sessionStorage.getItem("bIsOpen") === "true")
+    if (sessionStorage.getItem("bIsOpen") == "true")
     {
       document.getElementById("fluorometer-body").src = FluorometerFrontClosed;
       sessionStorage.setItem("bIsOpen", "false");
@@ -67,27 +69,21 @@ const FluorometerFront = () => {
         </Paper>
       </header>
 
-      <Box display="flex" m={2}>
-        <Button variant="contained" component={Link} to="/simulation">
-          Return to Table
-        </Button>
-      </Box>
-      
       <div className='fluorometer-body'>
         <div className='center'>
           <img className="FluorometerOpenEmpty" src={fluorometer_image} alt="FluorometerOpenEmpty" id="fluorometer-body" width={1000}/>
         </div>
         <Box display="flex" justifyContent="center" m={0} >
-          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/side">
+          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerSide">
             Side
           </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/top">
+          <Button id="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerTop">
             Top
           </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary" onClick={openFluorometer}>
+          <Button id="cuvette-Select" variant="contained" color="primary" onClick={openFluorometer}>
             Open/Close Hood
           </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary" onClick={Initialize}>
+          <Button id="cuvette-Select" variant="contained" color="primary" onClick={Initialize}>
             Initialize [TESTING ONLY]
           </Button>
 

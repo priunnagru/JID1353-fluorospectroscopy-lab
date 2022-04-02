@@ -34,11 +34,11 @@ const TopScreen = () => {
       <div className="Simulation-body">
           <Box display="flex" justifyContent="center" m={0}>
             <div classname="desktop">
-              <Link to="/">
+              <Link to="/simulation/computer">
                 <button className="computer"></button>
               </Link>
               <button className="cuvettes"></button>
-              <Link to="/simulation/fluorometerFront">
+              <Link to="/simulation/fluorometer/front">
                 <button className="fluoro"></button>
               </Link>
             </div>

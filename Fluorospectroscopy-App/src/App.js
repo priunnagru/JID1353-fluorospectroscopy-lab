@@ -24,10 +24,12 @@ import FluorometerTop from './screens/simulation/FluorometerTop'
 import FluorometerSide from './screens/simulation/FluorometerSide'
 import FluorometerFront from './screens/simulation/FluorometerFront'
 
+import ComputerScreen from './screens/simulation/ComputerScreen'
 
 import Lab from './screens/Lab'
 import Settings from './screens/Settings'
 import ScrollToTop from './ScrollToTop'
+
 
 function App() {
   return (
@@ -51,11 +53,13 @@ function App() {
         <Route path="/tutorial/12" element={<TutorialNewM />}/>
         <Route path="/tutorial/13" element={<TutorialNewN />}/>
 
-        <Route path="/lab" element={<TopScreen />}/>
+        <Route path="/simulation" element={<TopScreen />}/>
           
-        <Route path="/simulation/fluorometerFront" element={<FluorometerFront />}/>
-        <Route path="/simulation/fluorometerSide" element={<FluorometerSide />}/>
-        <Route path="/simulation/fluorometerTop" element={<FluorometerTop />}/>
+        <Route path="/simulation/fluorometer/front" element={<FluorometerFront />}/>
+        <Route path="/simulation/fluorometer/side" element={<FluorometerSide />}/>
+        <Route path="/simulation/fluorometer/top" element={<FluorometerTop />}/>
+
+        <Route path="/simulation/computer" element={<ComputerScreen />}/>
 
         <Route path="/settings" element={<Settings />}/>
       </Routes>

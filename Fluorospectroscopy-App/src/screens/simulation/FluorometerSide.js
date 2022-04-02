@@ -52,7 +52,7 @@ const FluorometerSide = () => {
       </header>
 
       <Box display="flex" m={2}>
-        <Button variant="contained" component={Link} to="/lab">
+        <Button variant="contained" component={Link} to="/simulation">
           Return to Table
         </Button>
       </Box>
@@ -62,10 +62,10 @@ const FluorometerSide = () => {
           <img className="FluorometerOpenEmpty" src={fluorometer_image} alt="FluorometerOpenEmpty" id="imgClickAndChange" width={1000}/>
         </div>
         <Box display="flex" justifyContent="center" m={0} >
-          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerTop">
+          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/top">
             Top
           </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometerFront">
+          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/front">
             Front
           </Button>
           <Button className="cuvette-Select" variant="contained" color="primary" onClick={toggleFluorometer}>

@@ -3,9 +3,9 @@ import TechGold from '../../resources/GeorgiaTech_TechGold.png'
 import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
-import FluorometerSideClosed from '../../resources/Simulation/Fluorometer-SideView.png'
-import FluorometerSideClosedOn from '../../resources/Simulation/Fluorometer-SideView-On.png'
-import FluorometerSideClosedOff from '../../resources/Simulation/Fluorometer-SideView-Off.png'
+import FluorometerSideClosed from '../../resources/simulation/Fluorometer-SideView.png'
+import FluorometerSideClosedOn from '../../resources/simulation/Fluorometer-SideView-On.png'
+import FluorometerSideClosedOff from '../../resources/simulation/Fluorometer-SideView-Off.png'
 
 const FluorometerSide = () => {
   var fluorometer_image;

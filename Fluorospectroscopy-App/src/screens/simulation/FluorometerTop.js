@@ -3,9 +3,9 @@ import TechGold from '../../resources/GeorgiaTech_TechGold.png'
 import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
-import FluorometerOpenEmpty from '../../resources/Simulation/Fluorometer-TopView-Empty-NoLight-Open.png'
-import FluorometerOpenNotEmpty from '../../resources/Simulation/Fluorometer-TopView-NotEmpty-NoLight-Open.png'
-import FluorometerOpenNotEmptyLight from '../../resources/Simulation/Fluorometer-TopView-NotEmpty-Light-Open.png'
+import FluorometerOpenEmpty from '../../resources/simulation/Fluorometer-TopView-Empty-NoLight-Open.png'
+import FluorometerOpenNotEmpty from '../../resources/simulation/Fluorometer-TopView-NotEmpty-NoLight-Open.png'
+import FluorometerOpenNotEmptyLight from '../../resources/simulation/Fluorometer-TopView-NotEmpty-Light-Open.png'
 
 import React, { useRef } from 'react';
 import Popup from 'reactjs-popup';

@@ -18,13 +18,13 @@ import TutorialNewL from './screens/tutorial/TutorialNewL'
 import TutorialNewM from './screens/tutorial/TutorialNewM'
 import TutorialNewN from './screens/tutorial/TutorialNewN'
 
-import TopScreen from './screens/Simulation/TopScreen'
+import TopScreen from './screens/simulation/TopScreen'
 
-import FluorometerTop from './screens/Simulation/FluorometerTop'
-import FluorometerSide from './screens/Simulation/FluorometerSide'
-import FluorometerFront from './screens/Simulation/FluorometerFront'
+import FluorometerTop from './screens/simulation/FluorometerTop'
+import FluorometerSide from './screens/simulation/FluorometerSide'
+import FluorometerFront from './screens/simulation/FluorometerFront'
 
-import ComputerScreen from './screens/Simulation/ComputerScreen'
+import ComputerScreen from './screens/simulation/ComputerScreen'
 
 
 import Settings from './screens/Settings'

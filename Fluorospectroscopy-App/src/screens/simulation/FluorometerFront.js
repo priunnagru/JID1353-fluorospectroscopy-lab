@@ -72,15 +72,23 @@ const FluorometerFront = () => {
           <img className="FluorometerOpenEmpty" src={fluorometer_image} alt="FluorometerOpenEmpty" id="fluorometer-body" width={1000}/>
         </div>
         <Box display="flex" justifyContent="center" m={0} >
-          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/side">
-            Side
-          </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/top">
-            Top
-          </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary" onClick={openFluorometer}>
-            Open/Close Hood
-          </Button>
+          <div className='side-by-side-container'>
+            <div className='button-spacing'>
+              <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/side">
+                Side
+              </Button>
+            </div>
+            <div className='button-spacing'>
+              <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/top">
+                Top
+              </Button>
+            </div>
+            <div className='button-spacing'>
+              <Button className="cuvette-Select" variant="contained" color="primary" onClick={openFluorometer}>
+                Open/Close Hood
+              </Button>
+            </div>
+          </div>
         </Box>
       </div>
     </>

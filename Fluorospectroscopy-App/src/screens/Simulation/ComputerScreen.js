@@ -1,11 +1,13 @@
 import { Box, Button, TextField, Tooltip, ToggleButtonGroup, ToggleButton, Paper, Typography } from '@mui/material';
 import '../../styles/tutorial_styles.css';
 import '../../styles/param_styles.css';
+import '../../styles/sim_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
 import TechGold from '../../resources/GeorgiaTech_TechGold.png'
+import Incorrect from '../../resources/sounds/wrong-buzzer-6268.mp3'
 
-import ImageA from '../../resources/tutorial/image1.svg'
+import ImageA from '../../resources/simulation/no-graph.svg'
 
 
 import React, { useRef } from 'react';
@@ -37,11 +39,17 @@ const ComputerScreen = () => {
     }
   };
 
-  var graph_img;
+  var graph_img = ImageA;
 
+  var incorrect_audio = new Audio(Incorrect);
+  incorrect_audio.volume = 0.05;
   const graphErrorRef = useRef();
-  const openGraphErrorPopup = () => graphErrorRef.current.open();
+  const openGraphErrorPopup = () => {
+    incorrect_audio.play();
+    graphErrorRef.current.open()
+  };
   const closeGraphErrorPopup = () => graphErrorRef.current.close();
+
   const concentration = 0.0125; // This is probably a setting that needs to be changed on the fluorometer screen
   var hash = 0;
 
@@ -56,7 +64,7 @@ const ComputerScreen = () => {
     {
       hash = 0;
       hash = hash + 537; // ascii hash for BSA-EGCG, will need to change once additional chemicals are added
-      hash = hash + concentration*110000;
+      hash = hash + concentration * 110000;
       hash = hash + response * 7;
       hash = hash + bandwidth * 50;
       hash = hash * (Math.pow(2, sensitivity));
@@ -92,29 +100,37 @@ const ComputerScreen = () => {
       </header>
 
       <div>
-        <Button variant="contained" endIcon={<NavigateNext/>} component={Link} to="/simulation">
-          Return to Table
-        </Button>
-
-        <Button variant="contained" onClick={openParamPopup}>
-          Parameters
-        </Button>
-
-        <Button variant="contained" onClick={displayGraph}>
-          Graph
-        </Button>
-        <div>
-          <img className="img1" source={graph_img} id="graph-img"></img>
+        <div className='side-by-side-container'>
+          <div className='button-spacing'>
+            <Button variant="contained" endIcon={<NavigateNext/>} component={Link} to="/simulation">
+              Return to Table
+            </Button>
+          </div>
+          <div className='button-spacing'>
+            <Button variant="contained" onClick={openParamPopup}>
+              Parameters
+            </Button>
+          </div>
+          <div className='button-spacing'>
+            <Button variant="contained" onClick={displayGraph}>
+              Graph
+            </Button>
+          </div>
+        </div>
+        <div className='side-by-side-container'>
+          <Paper className="paper-right" elevation={10}>
+            <img className="img1" src={graph_img} id="graph-img"></img>
+          </Paper>
         </div>
       </div>
 
       <Popup ref={graphErrorRef} modal>
-        <div className="popup-correct">
+        <div className="popup-error">
           <button className="popup-close" onClick={closeGraphErrorPopup}>
             &times;
           </button>
           <Typography variant="h4" color="secondary">
-            Error: Please check to see if Fluorometer is online and/or if the Fluorometer contains a cuvette.
+            Error: Please check to see if the Fluorometer is online and/or if the Fluorometer contains a cuvette.
           </Typography>
         </div>
       </Popup>

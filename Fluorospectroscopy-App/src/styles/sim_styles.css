@@ -37,7 +37,7 @@
 }
 .table{
     display: flex;
-    background-image: url(../resources/simulation/table.png);
+    background-image: url(../resources/Simulation/table.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -48,7 +48,7 @@
     background-color: transparent;
 }
 .computer{
-    background-image: url(../resources/simulation/monitor.png);
+    background-image: url(../resources/Simulation/monitor.png);
     height: 428px;
     width: 587px;
     background-repeat: no-repeat;
@@ -62,7 +62,7 @@
     cursor: pointer;
 }
 .cuvettes{
-    background-image: url(../resources/simulation/cuvettes\ 3.png);
+    background-image: url(../resources/Simulation/cuvettes\ 3.png);
     height: 70px;
     width: 200px;
     background-repeat: no-repeat;
@@ -72,7 +72,7 @@
     border: none;
 }
 .fluoro{
-    background-image: url(../resources/simulation/front\ view\ closed.png);
+    background-image: url(../resources/Simulation/front\ view\ closed.png);
     height: 428px;
     width: 587px;
     background-repeat: no-repeat;

@@ -1,6 +1,6 @@
 import { Button, Typography, Box, Paper } from '@mui/material';
 import TechGold from '../../resources/GeorgiaTech_TechGold.png'
-import Table from '../../resources/simulation/table.png'
+import Table from '../../resources/Simulation/table.png'
 import '../../styles/sim_styles.css';
 import React, { useRef } from 'react';
 import Popup from 'reactjs-popup';

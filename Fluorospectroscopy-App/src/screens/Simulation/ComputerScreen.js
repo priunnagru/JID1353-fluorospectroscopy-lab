@@ -7,6 +7,7 @@ import TechGold from '../../resources/GeorgiaTech_TechGold.png'
 
 import ImageA from '../../resources/tutorial/image1.svg'
 
+
 import React, { useRef } from 'react';
 import Popup from 'reactjs-popup';
 
@@ -41,6 +42,8 @@ const ComputerScreen = () => {
   const graphErrorRef = useRef();
   const openGraphErrorPopup = () => graphErrorRef.current.open();
   const closeGraphErrorPopup = () => graphErrorRef.current.close();
+  const concentration = 0.0125; // This is probably a setting that needs to be changed on the fluorometer screen
+  var hash = 0;
 
   const displayGraph = () => {
     console.log(sessionStorage.getItem("bHasCuvette"));
@@ -51,11 +54,18 @@ const ComputerScreen = () => {
     }
     else
     {
-      document.getElementById("graph-img").src = ImageA;
+      hash = 0;
+      hash = hash + 537; // ascii hash for BSA-EGCG, will need to change once additional chemicals are added
+      hash = hash + concentration*110000;
+      hash = hash + response * 7;
+      hash = hash + bandwidth * 50;
+      hash = hash * (Math.pow(2, sensitivity));
+      console.log(hash);
+      document.getElementById("graph-img").src = process.env.PUBLIC_URL + '/graphs/' + hash +'.svg';
     }
   }
 
-  const concentration = 0.0125; // This is probably a setting that needs to be changed on the fluorometer screen
+  
 
   return (
     <>

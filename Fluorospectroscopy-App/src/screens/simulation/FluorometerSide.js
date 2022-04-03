@@ -9,20 +9,20 @@ import FluorometerSideClosedOff from '../../resources/simulation/Fluorometer-Sid
 
 const FluorometerSide = () => {
   var fluorometer_image;
-  if (sessionStorage.getItem("bIsActivate") === "true") {
+  if (sessionStorage.getItem("bIsActivated") === "true") {
     fluorometer_image = FluorometerSideClosedOn;
   } else {
     fluorometer_image = FluorometerSideClosedOff;
   }
   const toggleFluorometer = () => {
-    if (sessionStorage.getItem("bIsActivate") === "true")
+    if (sessionStorage.getItem("bIsActivated") === "true")
     {
-      sessionStorage.setItem("bIsActivate", "false");
+      sessionStorage.setItem("bIsActivated", "false");
       document.getElementById("imgClickAndChange").src = FluorometerSideClosedOff;
     }
     else
     {
-      sessionStorage.setItem("bIsActivate", "true");
+      sessionStorage.setItem("bIsActivated", "true");
       document.getElementById("imgClickAndChange").src = FluorometerSideClosedOn;
     }
   }
@@ -52,7 +52,7 @@ const FluorometerSide = () => {
       </header>
 
       <Box display="flex" m={2}>
-        <Button variant="contained" component={Link} to="/simulation">
+        <Button variant="contained" endIcon={<NavigateNext/>} component={Link} to="/simulation">
           Return to Table
         </Button>
       </Box>

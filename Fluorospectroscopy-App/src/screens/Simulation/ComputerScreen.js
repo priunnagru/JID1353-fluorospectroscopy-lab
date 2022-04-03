@@ -2,7 +2,10 @@ import { Box, Button, TextField, Tooltip, ToggleButtonGroup, ToggleButton, Paper
 import '../../styles/tutorial_styles.css';
 import '../../styles/param_styles.css';
 import { Link } from 'react-router-dom';
+import NavigateNext from '@mui/icons-material/NavigateNext';
 import TechGold from '../../resources/GeorgiaTech_TechGold.png'
+
+import ImageA from '../../resources/tutorial/image1.svg'
 
 import React, { useRef } from 'react';
 import Popup from 'reactjs-popup';
@@ -33,6 +36,25 @@ const ComputerScreen = () => {
     }
   };
 
+  var graph_img;
+
+  const graphErrorRef = useRef();
+  const openGraphErrorPopup = () => graphErrorRef.current.open();
+  const closeGraphErrorPopup = () => graphErrorRef.current.close();
+
+  const displayGraph = () => {
+    console.log(sessionStorage.getItem("bHasCuvette"));
+    console.log(sessionStorage.getItem("bIsActivated"));
+    if (sessionStorage.getItem("bHasCuvette") === "false" || sessionStorage.getItem("bIsActivated") === "false")
+    {
+      openGraphErrorPopup();
+    }
+    else
+    {
+      document.getElementById("graph-img").src = ImageA;
+    }
+  }
+
   const concentration = 0.0125; // This is probably a setting that needs to be changed on the fluorometer screen
 
   return (
@@ -59,9 +81,33 @@ const ComputerScreen = () => {
         </Paper>
       </header>
 
-      <Button variant="contained" onClick={openParamPopup}>
-        Parameters
-      </Button>
+      <div>
+        <Button variant="contained" endIcon={<NavigateNext/>} component={Link} to="/simulation">
+          Return to Table
+        </Button>
+
+        <Button variant="contained" onClick={openParamPopup}>
+          Parameters
+        </Button>
+
+        <Button variant="contained" onClick={displayGraph}>
+          Graph
+        </Button>
+        <div>
+          <img className="img1" source={graph_img} id="graph-img"></img>
+        </div>
+      </div>
+
+      <Popup ref={graphErrorRef} modal>
+        <div className="popup-correct">
+          <button className="popup-close" onClick={closeGraphErrorPopup}>
+            &times;
+          </button>
+          <Typography variant="h4" color="secondary">
+            Error: Please check to see if Fluorometer is online and/or if the Fluorometer contains a cuvette.
+          </Typography>
+        </div>
+      </Popup>
 
       <Popup ref={paramRef} modal>
         <div className="popup-params">

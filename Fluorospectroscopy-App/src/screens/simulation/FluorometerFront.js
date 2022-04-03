@@ -24,12 +24,6 @@ const FluorometerFront = () => {
     fluorometer_image = FluorometerFrontClosed;
   }
 
-  const Initialize = () => {
-    sessionStorage.setItem("bIsActivated", "false");
-    sessionStorage.setItem("bIsOpen", "false");
-    sessionStorage.setItem("bHasCuvette", "false");
-  }
-
   const openFluorometer = () => {
     if (sessionStorage.getItem("bIsOpen") === "true")
     {
@@ -68,7 +62,7 @@ const FluorometerFront = () => {
       </header>
 
       <Box display="flex" m={2}>
-        <Button variant="contained" component={Link} to="/simulation">
+        <Button variant="contained" endIcon={<NavigateNext/>} component={Link} to="/simulation">
           Return to Table
         </Button>
       </Box>
@@ -87,10 +81,6 @@ const FluorometerFront = () => {
           <Button className="cuvette-Select" variant="contained" color="primary" onClick={openFluorometer}>
             Open/Close Hood
           </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary" onClick={Initialize}>
-            Initialize [TESTING ONLY]
-          </Button>
-
         </Box>
       </div>
     </>

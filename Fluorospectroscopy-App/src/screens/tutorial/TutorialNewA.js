@@ -39,6 +39,12 @@ const TutorialNewA = () => {
         </Box>
 
         <Box display="flex" justifyContent="center" m={2}>
+          <Typography className= "general-text" variant="h3" color="secondary">
+            Hint: You can click on images to enlarge them.
+          </Typography>
+        </Box>
+
+        <Box display="flex" justifyContent="center" m={2}>
           <Button variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/tutorial/1">
             Begin
           </Button>

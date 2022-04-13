@@ -26,6 +26,7 @@ const TutorialNewG = () => {
     incorrect_audio.play();
     incorrectRef.current.open();
   }
+  const closeIncorrectPopup = () => incorrectRef.current.close();
 
   return (
     <>
@@ -93,7 +94,7 @@ const TutorialNewG = () => {
               <Paper className="paper-img1" elevation={10}>
                 <img className="img2" src={ImageA} alt=""/>
               </Paper>
-              <Typography className= "general-text" variant="h6">
+              <Typography className= "general-text" variant="h6" style={{ fontWeight: 600 }}>
                 Excitation Bandwidth = 2.5nm
               </Typography>
             </div>
@@ -101,7 +102,7 @@ const TutorialNewG = () => {
               <Paper className="paper-img1" elevation={10}>
                 <img className="img2" src={ImageB} alt=""/>
               </Paper>
-              <Typography className= "general-text" variant="h6">
+              <Typography className= "general-text" variant="h6" style={{ fontWeight: 600 }}>
                 Excitation/Emission Bandwidth = 5nm
               </Typography>
             </div>
@@ -116,6 +117,9 @@ const TutorialNewG = () => {
 
       <Popup ref={incorrectRef} modal>
         <div className="popup-correct">
+          <button className="popup-close" onClick={closeIncorrectPopup}>
+            &times;
+          </button>
           <Typography variant="h4" color="secondary">
             Not quite! Think about the previous section of the tutorial.
           </Typography>

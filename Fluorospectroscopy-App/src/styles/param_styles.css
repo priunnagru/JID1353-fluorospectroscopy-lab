@@ -1,0 +1,15 @@
+.input-box {
+    padding-bottom: 20px;
+}
+
+.popup-params {
+    padding: 30px;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    border: solid;
+    border-color: #003057;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    min-height: 10vh;
+    padding-bottom: 0vh;
+    animation: fadein 0.5s;
+}

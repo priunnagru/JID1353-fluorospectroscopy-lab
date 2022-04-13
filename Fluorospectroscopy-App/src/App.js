@@ -18,11 +18,18 @@ import TutorialNewL from './screens/tutorial/TutorialNewL'
 import TutorialNewM from './screens/tutorial/TutorialNewM'
 import TutorialNewN from './screens/tutorial/TutorialNewN'
 
-import Fluorometer from './screens/simulation/FluorometerOpenEmpty'
+import TopScreen from './screens/simulation/TopScreen'
 
-import Lab from './screens/Lab'
+import FluorometerTop from './screens/simulation/FluorometerTop'
+import FluorometerSide from './screens/simulation/FluorometerSide'
+import FluorometerFront from './screens/simulation/FluorometerFront'
+
+import ComputerScreen from './screens/simulation/ComputerScreen'
+
+
 import Settings from './screens/Settings'
 import ScrollToTop from './ScrollToTop'
+
 
 function App() {
   return (
@@ -46,7 +53,13 @@ function App() {
         <Route path="/tutorial/12" element={<TutorialNewM />}/>
         <Route path="/tutorial/13" element={<TutorialNewN />}/>
 
-        <Route path="/lab" element={<Fluorometer />}/>
+        <Route path="/simulation" element={<TopScreen />}/>
+          
+        <Route path="/simulation/fluorometer/front" element={<FluorometerFront />}/>
+        <Route path="/simulation/fluorometer/side" element={<FluorometerSide />}/>
+        <Route path="/simulation/fluorometer/top" element={<FluorometerTop />}/>
+
+        <Route path="/simulation/computer" element={<ComputerScreen />}/>
 
         <Route path="/settings" element={<Settings />}/>
       </Routes>

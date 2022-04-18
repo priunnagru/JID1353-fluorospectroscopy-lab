@@ -124,7 +124,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     min-height: 10vh;
     padding-top: 9vh;
-    padding-bottom: 0vh;
+    padding-bottom: 7vh;
     animation: fadein 0.5s;
 }
 
@@ -137,7 +137,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     min-height: 10vh;
     padding-top: 7vh;
-    padding-bottom: 0vh;
+    padding-bottom: 7vh;
     animation: fadein 0.5s;
 }
 

@@ -26,7 +26,7 @@ import FluorometerFront from './screens/simulation/FluorometerFront'
 
 import ComputerScreen from './screens/simulation/ComputerScreen'
 
-import Lab from './screens/Lab'
+
 import Settings from './screens/Settings'
 import ScrollToTop from './ScrollToTop'
 

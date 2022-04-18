@@ -107,3 +107,16 @@
 .spacer{
     min-height: 20px;
 }
+.paper-img2 {
+    width: 60%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.button-spacing {
+    padding: 2px;
+}
+.paper-right {
+    margin-left: auto;
+    width: 50%;
+}

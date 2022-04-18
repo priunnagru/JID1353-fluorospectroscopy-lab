@@ -9,20 +9,20 @@ import FluorometerSideClosedOff from '../../resources/simulation/Fluorometer-Sid
 
 const FluorometerSide = () => {
   var fluorometer_image;
-  if (sessionStorage.getItem("bIsActivate") === "true") {
+  if (sessionStorage.getItem("bIsActivated") === "true") {
     fluorometer_image = FluorometerSideClosedOn;
   } else {
     fluorometer_image = FluorometerSideClosedOff;
   }
   const toggleFluorometer = () => {
-    if (sessionStorage.getItem("bIsActivate") === "true")
+    if (sessionStorage.getItem("bIsActivated") === "true")
     {
-      sessionStorage.setItem("bIsActivate", "false");
+      sessionStorage.setItem("bIsActivated", "false");
       document.getElementById("imgClickAndChange").src = FluorometerSideClosedOff;
     }
     else
     {
-      sessionStorage.setItem("bIsActivate", "true");
+      sessionStorage.setItem("bIsActivated", "true");
       document.getElementById("imgClickAndChange").src = FluorometerSideClosedOn;
     }
   }
@@ -52,7 +52,7 @@ const FluorometerSide = () => {
       </header>
 
       <Box display="flex" m={2}>
-        <Button variant="contained" component={Link} to="/simulation">
+        <Button variant="contained" endIcon={<NavigateNext/>} component={Link} to="/simulation">
           Return to Table
         </Button>
       </Box>
@@ -62,15 +62,23 @@ const FluorometerSide = () => {
           <img className="FluorometerOpenEmpty" src={fluorometer_image} alt="FluorometerOpenEmpty" id="imgClickAndChange" width={1000}/>
         </div>
         <Box display="flex" justifyContent="center" m={0} >
-          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/top">
-            Top
-          </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/front">
-            Front
-          </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary" onClick={toggleFluorometer}>
-            Toggle Fluorometer
-          </Button>
+          <div className='side-by-side-container'>
+            <div className='button-spacing'>
+              <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/top">
+                Top
+              </Button>
+            </div>
+            <div className='button-spacing'>
+              <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/front">
+                Front
+              </Button>
+            </div>
+            <div className='button-spacing'>
+              <Button className="cuvette-Select" variant="contained" color="primary" onClick={toggleFluorometer}>
+                Toggle Fluorometer
+              </Button>
+            </div>
+          </div>
         </Box>
       </div>
     </>

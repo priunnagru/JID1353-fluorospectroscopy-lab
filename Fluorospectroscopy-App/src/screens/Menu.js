@@ -2,6 +2,13 @@ import { Button, Typography, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const Menu = () => {
+  const Initialize = () => {
+    console.log("INITIALIZED!")
+    sessionStorage.setItem("bIsActivated", "false");
+    sessionStorage.setItem("bIsOpen", "false");
+    sessionStorage.setItem("bHasCuvette", "false");
+  }
+
   return (
     <>
       <Box display="flex" justifyContent="center" m={5}>
@@ -17,7 +24,7 @@ const Menu = () => {
       </Box>
 
       <Box display="flex" justifyContent="center" m={2}>
-        <Button variant="contained" component={Link} to="/simulation">
+        <Button variant="contained" component={Link} to="/simulation" onClick={Initialize}>
           Start Lab Simulation
         </Button>
       </Box>

@@ -86,7 +86,7 @@ const ComputerScreen = () => {
 
             <div className="header-title">
               <Typography className="general-text" variant="h2" color="primary">
-                Fluorescense Spectroscopy Simulation
+                Fluorescence Spectroscopy Simulation
               </Typography>
             </div>
 

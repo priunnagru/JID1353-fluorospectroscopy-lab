@@ -1,4 +1,12 @@
-import { Box, Button, TextField, Tooltip, ToggleButtonGroup, ToggleButton, Paper, Typography } from '@mui/material';
+import { 
+  Box, 
+  Button, 
+  TextField, 
+  Tooltip, 
+  ToggleButtonGroup, ToggleButton, 
+  Paper, 
+  Typography,
+  Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import '../../styles/tutorial_styles.css';
 import '../../styles/param_styles.css';
 import '../../styles/sim_styles.css';
@@ -8,7 +16,6 @@ import TechGold from '../../resources/GeorgiaTech_TechGold.png'
 import Incorrect from '../../resources/sounds/wrong-buzzer-6268.mp3'
 
 import ImageA from '../../resources/simulation/no-graph.svg'
-
 
 import React, { useRef } from 'react';
 import Popup from 'reactjs-popup';
@@ -26,9 +33,17 @@ const ComputerScreen = () => {
   };
 
   const [sensitivity, setSensitivity] = React.useState(1);
+  const [sensitivityText, setSensitivityText] = React.useState("Low");
   const sensitivityChange = (event, newSensitivity) => {
     if (newSensitivity !== null) {
       setSensitivity(newSensitivity);
+    }
+    if (newSensitivity === 1) {
+      setSensitivityText("Low");
+    } else if (newSensitivity === 2) {
+      setSensitivityText("Medium");
+    } else if (newSensitivity === 3) {
+      setSensitivityText("High");
     }
   };
 
@@ -50,15 +65,33 @@ const ComputerScreen = () => {
   };
   const closeGraphErrorPopup = () => graphErrorRef.current.close();
 
+  const respErrorRef = useRef();
+  const openRespErrorPopup = () => {
+    incorrect_audio.play();
+    respErrorRef.current.open()
+  };
+  const closeRespErrorPopup = () => respErrorRef.current.close();
+
+  const downloadErrorRef = useRef();
+  const openDownloadErrorPopup = () => {
+    incorrect_audio.play();
+    downloadErrorRef.current.open()
+  };
+  const closeDownloadErrorPopup = () => downloadErrorRef.current.close();
+
   const concentration = 0.0125; // This is probably a setting that needs to be changed on the fluorometer screen
   var hash = 0;
+  const [currHash, setCurrHash] = React.useState(-1);
 
   const displayGraph = () => {
-    console.log(sessionStorage.getItem("bHasCuvette"));
-    console.log(sessionStorage.getItem("bIsActivated"));
+    //console.log(sessionStorage.getItem("bHasCuvette"));
+    //console.log(sessionStorage.getItem("bIsActivated"));
     if (sessionStorage.getItem("bHasCuvette") === "false" || sessionStorage.getItem("bIsActivated") === "false")
     {
       openGraphErrorPopup();
+    }
+    else if (response > 500) {
+      openRespErrorPopup();
     }
     else
     {
@@ -68,12 +101,26 @@ const ComputerScreen = () => {
       hash = hash + response * 7;
       hash = hash + bandwidth * 50;
       hash = hash * (Math.pow(2, sensitivity));
-      console.log(hash);
+      //console.log(hash);
       document.getElementById("graph-img").src = process.env.PUBLIC_URL + '/graphs/' + hash +'.svg';
+      setCurrHash(hash);
     }
   }
-
   
+  const downloadData = () => {
+    if (currHash < 0) {
+      openDownloadErrorPopup();
+    } else {
+      let f = process.env.PUBLIC_URL + '/data/' + currHash + '.csv';
+
+      const a = document.createElement('a');
+      a.href = f;
+      a.download = "data";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  }
 
   return (
     <>
@@ -86,7 +133,7 @@ const ComputerScreen = () => {
 
             <div className="header-title">
               <Typography className="general-text" variant="h2" color="primary">
-                Fluorescense Spectroscopy Simulation
+                Fluorescence Spectroscopy Simulation
               </Typography>
             </div>
 
@@ -117,11 +164,46 @@ const ComputerScreen = () => {
             </Button>
           </div>
         </div>
-        <div className='side-by-side-container'>
+        <div className='display-graph-container'>
+          <div className='display-left'>
+            <TableContainer component={Paper}>
+              <Table size="small">
+                <TableHead>
+                  <TableRow>
+                    <TableCell><strong>Parameter</strong></TableCell>
+                    <TableCell align="right"><strong>Selected Value</strong></TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell component="th" scope="row">Concentration</TableCell>
+                    <TableCell align="right">{concentration} mM</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell component="th" scope="row">Excitation/Emission Bandwidth</TableCell>
+                    <TableCell align="right">{bandwidth} nm</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell component="th" scope="row">Sensitivity</TableCell>
+                    <TableCell align="right">{sensitivityText}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell component="th" scope="row">Response Time</TableCell>
+                    <TableCell align="right">{response} ms</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
           <Paper className="paper-right" elevation={10}>
             <img className="img1" src={graph_img} id="graph-img"></img>
           </Paper>
         </div>
+        <Box display="flex" justifyContent="right" sx={{paddingRight: 3}}>
+          <Button variant="contained" color="secondary" onClick={downloadData}>
+            Download Data
+          </Button>
+        </Box>
       </div>
 
       <Popup ref={graphErrorRef} modal>
@@ -131,6 +213,28 @@ const ComputerScreen = () => {
           </button>
           <Typography variant="h4" color="secondary">
             Error: Please check to see if the Fluorometer is online and/or if the Fluorometer contains a cuvette.
+          </Typography>
+        </div>
+      </Popup>
+
+      <Popup ref={respErrorRef} modal>
+        <div className="popup-error">
+          <button className="popup-close" onClick={closeRespErrorPopup}>
+            &times;
+          </button>
+          <Typography variant="h4" color="secondary">
+            Error: Response time and scan speed must match!
+          </Typography>
+        </div>
+      </Popup>
+
+      <Popup ref={downloadErrorRef} modal>
+        <div className="popup-error">
+          <button className="popup-close" onClick={closeDownloadErrorPopup}>
+            &times;
+          </button>
+          <Typography variant="h4" color="secondary">
+            Error: There is currently no valid data graphed!
           </Typography>
         </div>
       </Popup>
@@ -187,9 +291,9 @@ const ComputerScreen = () => {
                 exclusive
                 onChange={bandwidthChange}
               >
-                <ToggleButton value={2.5}>2.5 nm</ToggleButton>
-                <ToggleButton value={5}>5 nm</ToggleButton>
-                <ToggleButton value={10}>10 nm</ToggleButton>
+                <ToggleButton value={2.5} style={{textTransform: "none"}}>2.5 nm</ToggleButton>
+                <ToggleButton value={5} style={{textTransform: "none"}}>5 nm</ToggleButton>
+                <ToggleButton value={10} style={{textTransform: "none"}}>10 nm</ToggleButton>
               </ToggleButtonGroup>
             </Tooltip>
           </div>
@@ -231,11 +335,15 @@ const ComputerScreen = () => {
                 exclusive
                 onChange={responseChange}
               >
-                <ToggleButton value={20}>20 ms</ToggleButton>
-                <ToggleButton value={50}>50 ms</ToggleButton>
-                <ToggleButton value={100}>0.1 s</ToggleButton>
-                <ToggleButton value={200}>0.2 s</ToggleButton>
-                <ToggleButton value={500}>0.5 s</ToggleButton>
+                <ToggleButton value={20} style={{textTransform: "none"}}>20 ms</ToggleButton>
+                <ToggleButton value={50} style={{textTransform: "none"}}>50 ms</ToggleButton>
+                <ToggleButton value={100} style={{textTransform: "none"}}>0.1 s</ToggleButton>
+                <ToggleButton value={200} style={{textTransform: "none"}}>0.2 s</ToggleButton>
+                <ToggleButton value={500} style={{textTransform: "none"}}>0.5 s</ToggleButton>
+                <ToggleButton value={1000} style={{textTransform: "none"}}>1 s</ToggleButton>
+                <ToggleButton value={2000} style={{textTransform: "none"}}>2 s</ToggleButton>
+                <ToggleButton value={4000} style={{textTransform: "none"}}>4 s</ToggleButton>
+                <ToggleButton value={8000} style={{textTransform: "none"}}>8 s</ToggleButton>
               </ToggleButtonGroup>
             </Tooltip>
           </div>
@@ -268,6 +376,13 @@ const ComputerScreen = () => {
             } placement="right" arrow>
               <TextField disabled id="filled-disabled" label="Accumulations" variant="outlined" defaultValue="1" size="small"/>
             </Tooltip>
+          </div>
+          <div className="input-box">
+            <Box display="flex" justifyContent="right">
+              <Button variant="contained" onClick={closeParamPopup}>
+                Apply
+              </Button>
+            </Box>
           </div>
         </div>
       </Popup>

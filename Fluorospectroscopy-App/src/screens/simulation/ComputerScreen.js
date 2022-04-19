@@ -189,7 +189,7 @@ const ComputerScreen = () => {
             &times;
           </button>
           <Typography variant="h4" color="secondary">
-            There is currently no valid data graphed!
+            Error: There is currently no valid data graphed!
           </Typography>
         </div>
       </Popup>
@@ -331,6 +331,13 @@ const ComputerScreen = () => {
             } placement="right" arrow>
               <TextField disabled id="filled-disabled" label="Accumulations" variant="outlined" defaultValue="1" size="small"/>
             </Tooltip>
+          </div>
+          <div className="input-box">
+            <Box display="flex" justifyContent="right">
+              <Button variant="contained" onClick={closeParamPopup}>
+                Apply
+              </Button>
+            </Box>
           </div>
         </div>
       </Popup>

@@ -118,5 +118,18 @@
 }
 .paper-right {
     margin-left: auto;
-    width: 50%;
+    width: 100%;
+    max-width: 48vw;
+}
+
+.display-graph-container {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.display-left {
+    width: 100%;
+    padding-right: 20px;
+    max-width: 416px;
 }

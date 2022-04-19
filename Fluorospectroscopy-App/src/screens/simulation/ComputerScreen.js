@@ -50,15 +50,33 @@ const ComputerScreen = () => {
   };
   const closeGraphErrorPopup = () => graphErrorRef.current.close();
 
+  const respErrorRef = useRef();
+  const openRespErrorPopup = () => {
+    incorrect_audio.play();
+    respErrorRef.current.open()
+  };
+  const closeRespErrorPopup = () => respErrorRef.current.close();
+
+  const downloadErrorRef = useRef();
+  const openDownloadErrorPopup = () => {
+    incorrect_audio.play();
+    downloadErrorRef.current.open()
+  };
+  const closeDownloadErrorPopup = () => downloadErrorRef.current.close();
+
   const concentration = 0.0125; // This is probably a setting that needs to be changed on the fluorometer screen
   var hash = 0;
+  const [currHash, setCurrHash] = React.useState(-1);
 
   const displayGraph = () => {
-    console.log(sessionStorage.getItem("bHasCuvette"));
-    console.log(sessionStorage.getItem("bIsActivated"));
+    //console.log(sessionStorage.getItem("bHasCuvette"));
+    //console.log(sessionStorage.getItem("bIsActivated"));
     if (sessionStorage.getItem("bHasCuvette") === "false" || sessionStorage.getItem("bIsActivated") === "false")
     {
       openGraphErrorPopup();
+    }
+    else if (response > 500) {
+      openRespErrorPopup();
     }
     else
     {
@@ -68,12 +86,26 @@ const ComputerScreen = () => {
       hash = hash + response * 7;
       hash = hash + bandwidth * 50;
       hash = hash * (Math.pow(2, sensitivity));
-      console.log(hash);
+      //console.log(hash);
       document.getElementById("graph-img").src = process.env.PUBLIC_URL + '/graphs/' + hash +'.svg';
+      setCurrHash(hash);
     }
   }
-
   
+  const downloadData = () => {
+    if (currHash < 0) {
+      openDownloadErrorPopup();
+    } else {
+      let f = process.env.PUBLIC_URL + '/data/' + currHash + '.csv';
+
+      const a = document.createElement('a');
+      a.href = f;
+      a.download = "data";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  }
 
   return (
     <>
@@ -122,6 +154,11 @@ const ComputerScreen = () => {
             <img className="img1" src={graph_img} id="graph-img"></img>
           </Paper>
         </div>
+        <Box display="flex" justifyContent="right" sx={{paddingRight: 3}}>
+          <Button variant="contained" color="secondary" onClick={downloadData}>
+            Download Data
+          </Button>
+        </Box>
       </div>
 
       <Popup ref={graphErrorRef} modal>
@@ -131,6 +168,28 @@ const ComputerScreen = () => {
           </button>
           <Typography variant="h4" color="secondary">
             Error: Please check to see if the Fluorometer is online and/or if the Fluorometer contains a cuvette.
+          </Typography>
+        </div>
+      </Popup>
+
+      <Popup ref={respErrorRef} modal>
+        <div className="popup-error">
+          <button className="popup-close" onClick={closeRespErrorPopup}>
+            &times;
+          </button>
+          <Typography variant="h4" color="secondary">
+            Error: Response time and scan speed must match!
+          </Typography>
+        </div>
+      </Popup>
+
+      <Popup ref={downloadErrorRef} modal>
+        <div className="popup-error">
+          <button className="popup-close" onClick={closeDownloadErrorPopup}>
+            &times;
+          </button>
+          <Typography variant="h4" color="secondary">
+            There is currently no valid data graphed!
           </Typography>
         </div>
       </Popup>
@@ -187,9 +246,9 @@ const ComputerScreen = () => {
                 exclusive
                 onChange={bandwidthChange}
               >
-                <ToggleButton value={2.5}>2.5 nm</ToggleButton>
-                <ToggleButton value={5}>5 nm</ToggleButton>
-                <ToggleButton value={10}>10 nm</ToggleButton>
+                <ToggleButton value={2.5} style={{textTransform: "none"}}>2.5 nm</ToggleButton>
+                <ToggleButton value={5} style={{textTransform: "none"}}>5 nm</ToggleButton>
+                <ToggleButton value={10} style={{textTransform: "none"}}>10 nm</ToggleButton>
               </ToggleButtonGroup>
             </Tooltip>
           </div>
@@ -231,11 +290,15 @@ const ComputerScreen = () => {
                 exclusive
                 onChange={responseChange}
               >
-                <ToggleButton value={20}>20 ms</ToggleButton>
-                <ToggleButton value={50}>50 ms</ToggleButton>
-                <ToggleButton value={100}>0.1 s</ToggleButton>
-                <ToggleButton value={200}>0.2 s</ToggleButton>
-                <ToggleButton value={500}>0.5 s</ToggleButton>
+                <ToggleButton value={20} style={{textTransform: "none"}}>20 ms</ToggleButton>
+                <ToggleButton value={50} style={{textTransform: "none"}}>50 ms</ToggleButton>
+                <ToggleButton value={100} style={{textTransform: "none"}}>0.1 s</ToggleButton>
+                <ToggleButton value={200} style={{textTransform: "none"}}>0.2 s</ToggleButton>
+                <ToggleButton value={500} style={{textTransform: "none"}}>0.5 s</ToggleButton>
+                <ToggleButton value={1000} style={{textTransform: "none"}}>1 s</ToggleButton>
+                <ToggleButton value={2000} style={{textTransform: "none"}}>2 s</ToggleButton>
+                <ToggleButton value={4000} style={{textTransform: "none"}}>4 s</ToggleButton>
+                <ToggleButton value={8000} style={{textTransform: "none"}}>8 s</ToggleButton>
               </ToggleButtonGroup>
             </Tooltip>
           </div>

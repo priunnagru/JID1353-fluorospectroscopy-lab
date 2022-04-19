@@ -1,4 +1,12 @@
-import { Box, Button, TextField, Tooltip, ToggleButtonGroup, ToggleButton, Paper, Typography } from '@mui/material';
+import { 
+  Box, 
+  Button, 
+  TextField, 
+  Tooltip, 
+  ToggleButtonGroup, ToggleButton, 
+  Paper, 
+  Typography,
+  Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import '../../styles/tutorial_styles.css';
 import '../../styles/param_styles.css';
 import '../../styles/sim_styles.css';
@@ -8,7 +16,6 @@ import TechGold from '../../resources/GeorgiaTech_TechGold.png'
 import Incorrect from '../../resources/sounds/wrong-buzzer-6268.mp3'
 
 import ImageA from '../../resources/simulation/no-graph.svg'
-
 
 import React, { useRef } from 'react';
 import Popup from 'reactjs-popup';
@@ -26,9 +33,17 @@ const ComputerScreen = () => {
   };
 
   const [sensitivity, setSensitivity] = React.useState(1);
+  const [sensitivityText, setSensitivityText] = React.useState("Low");
   const sensitivityChange = (event, newSensitivity) => {
     if (newSensitivity !== null) {
       setSensitivity(newSensitivity);
+    }
+    if (newSensitivity === 1) {
+      setSensitivityText("Low");
+    } else if (newSensitivity === 2) {
+      setSensitivityText("Medium");
+    } else if (newSensitivity === 3) {
+      setSensitivityText("High");
     }
   };
 
@@ -149,7 +164,37 @@ const ComputerScreen = () => {
             </Button>
           </div>
         </div>
-        <div className='side-by-side-container'>
+        <div className='display-graph-container'>
+          <div className='display-left'>
+            <TableContainer component={Paper}>
+              <Table size="small">
+                <TableHead>
+                  <TableRow>
+                    <TableCell><strong>Parameter</strong></TableCell>
+                    <TableCell align="right"><strong>Selected Value</strong></TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell component="th" scope="row">Concentration</TableCell>
+                    <TableCell align="right">{concentration} mM</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell component="th" scope="row">Excitation/Emission Bandwidth</TableCell>
+                    <TableCell align="right">{bandwidth} nm</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell component="th" scope="row">Sensitivity</TableCell>
+                    <TableCell align="right">{sensitivityText}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell component="th" scope="row">Response Time</TableCell>
+                    <TableCell align="right">{response} ms</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
           <Paper className="paper-right" elevation={10}>
             <img className="img1" src={graph_img} id="graph-img"></img>
           </Paper>

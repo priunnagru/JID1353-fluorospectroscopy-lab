@@ -3,9 +3,10 @@ import TechGold from '../../resources/GeorgiaTech_TechGold.png'
 import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
-import FluorometerOpenEmpty from '../../resources/simulation/Fluorometer-TopView-Empty-NoLight-Open.png'
-import FluorometerOpenNotEmpty from '../../resources/simulation/Fluorometer-TopView-NotEmpty-NoLight-Open.png'
-import FluorometerOpenNotEmptyLight from '../../resources/simulation/Fluorometer-TopView-NotEmpty-Light-Open.png'
+
+import FluorometerOpenEmpty from '../../resources/simulation/top - open.svg'
+import FluorometerOpenNotEmpty from '../../resources/simulation/top - open_cuvette.svg'
+import FluorometerClosedEmpty from '../../resources/simulation/top - closed.svg'
 
 import React, { useRef } from 'react';
 import Popup from 'reactjs-popup';
@@ -16,70 +17,28 @@ const FluorometerTop = () => {
     cuvetteSelectionRef.current.open();
   }
 
-  // We also need a closed version of the fluorometer from the top view
   var fluorometer_image;
-  if (sessionStorage.getItem("bHasCuvette") != null)
-  {
-    if (sessionStorage.getItem("bHasCuvette") === "true")
+
+  const updateState = () => {
+    console.log("UPDATE");
+    if (sessionStorage.getItem("bIsOpen") === "true")
     {
-      if (sessionStorage.getItem("bIsActivate") === "true")
-      {
-        fluorometer_image = FluorometerOpenNotEmptyLight;
-      }
-      else
+      if (sessionStorage.getItem("bHasCuvette") === "true")
       {
         fluorometer_image = FluorometerOpenNotEmpty;
-      }
-    }
-    else
-    {
-      if (sessionStorage.getItem("bIsActivate") === "true")
-      {
-        fluorometer_image = FluorometerOpenNotEmptyLight; // Replace with empty but activate
       }
       else
       {
         fluorometer_image = FluorometerOpenEmpty;
       }
     }
-  }
-  else
-  {
-    fluorometer_image = FluorometerOpenEmpty;
-  }
-
-  const updateState = () => {
-    console.log("UPDATE");
-    if (sessionStorage.getItem("bHasCuvette") != null)
-    {
-      if (sessionStorage.getItem("bHasCuvette") === "true")
-      {
-        if (sessionStorage.getItem("bIsActivate") === "true")
-        {
-          document.getElementById("imgClickAndChange").src = FluorometerOpenNotEmptyLight;
-        }
-        else
-        {
-          document.getElementById("imgClickAndChange").src = FluorometerOpenNotEmpty;
-        }
-      }
-      else
-      {
-        if (sessionStorage.getItem("bIsActivate") === "true")
-        {
-          document.getElementById("imgClickAndChange").src = FluorometerOpenNotEmptyLight; // Replace with empty but activate
-        }
-        else
-        {
-          document.getElementById("imgClickAndChange").src = FluorometerOpenEmpty;
-        }
-      }
-    }
     else
     {
-      document.getElementById("imgClickAndChange").src = FluorometerOpenEmpty;
+      fluorometer_image = FluorometerClosedEmpty;
     }
   }
+
+  updateState();
 
   const addCuvette = () => {
     sessionStorage.setItem("bHasCuvette", "true");
@@ -103,7 +62,7 @@ const FluorometerTop = () => {
 
             <div className="header-title">
               <Typography className= "general-text" variant="h2" color="primary">
-                Fluorescence Spectroscopy Simulation
+                Fluorescense Spectroscopy Simulation
               </Typography>
             </div>
 
@@ -117,7 +76,7 @@ const FluorometerTop = () => {
       </header>
 
       <Box display="flex" m={2}>
-        <Button variant="contained" component={Link} to="/simulation">
+        <Button variant="contained" endIcon={<NavigateNext/>} component={Link} to="/simulation">
           Return to Table
         </Button>
       </Box>
@@ -127,33 +86,21 @@ const FluorometerTop = () => {
           <img className="FluorometerOpenEmpty" src={fluorometer_image} alt="FluorometerOpenEmpty" id="imgClickAndChange" width={1000}/>
         </div>
         <Box display="flex" justifyContent="center" m={0} >
-          <div className='side-by-side-container'>
-            <div className='button-spacing'>
-              <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/side">
-                Side
-              </Button>
-            </div>
-            <div className='button-spacing'>
-              <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/front">
-                Front
-              </Button>
-            </div>
-            <div className='button-spacing'>
-              <Button className="cuvette-Select" variant="contained" color="primary" onClick={openCuvetteSelectionPopup}>
-                Chemicals
-              </Button>
-            </div>
-            <div className='button-spacing'>
-              <Button className="cuvette-Select" variant="contained" color="primary" onClick={removeCuvette}>
-                Remove Cuvette
-              </Button>
-            </div>
-            <div className='button-spacing'>
-              <Button className="cuvette-Select" variant="contained" color="primary">
-                Open/Close Hood
-              </Button>
-            </div>
-          </div>
+          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/side">
+            Side
+          </Button>
+          <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/front">
+            Front
+          </Button>
+          <Button className="cuvette-Select" variant="contained" color="primary" onClick={openCuvetteSelectionPopup}>
+            Chemicals
+          </Button>
+          <Button className="cuvette-Select" variant="contained" color="primary" onClick={removeCuvette}>
+            Remove Cuvette
+          </Button>
+          <Button className="cuvette-Select" variant="contained" color="primary">
+            Open/Close Hood
+          </Button>
         </Box>
       </div>
 

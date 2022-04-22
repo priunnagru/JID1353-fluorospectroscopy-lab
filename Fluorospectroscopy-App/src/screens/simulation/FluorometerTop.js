@@ -1,3 +1,9 @@
+import { 
+  TextField, 
+  Tooltip, 
+  ToggleButtonGroup, ToggleButton, 
+  Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+
 import { Button, Typography, Box, Paper, LinearProgress } from '@mui/material';
 import TechGold from '../../resources/GeorgiaTech_TechGold.png'
 import '../../styles/tutorial_styles.css';
@@ -8,46 +14,95 @@ import FluorometerOpenEmpty from '../../resources/simulation/top - open.svg'
 import FluorometerOpenNotEmpty from '../../resources/simulation/top - open_cuvette.svg'
 import FluorometerClosedEmpty from '../../resources/simulation/top - closed.svg'
 
+import Incorrect from '../../resources/sounds/wrong-buzzer-6268.mp3' 
+
 import React, { useRef } from 'react';
 import Popup from 'reactjs-popup';
 
 const FluorometerTop = () => {
-  const cuvetteSelectionRef = useRef();
-  const openCuvetteSelectionPopup = () => {
-    cuvetteSelectionRef.current.open();
+  const paramRef = useRef();
+  const openParamPopup = () => {
+    if (sessionStorage.getItem("bHasCuvette") === "true")
+    {
+      openSampleErrorPopup();
+    }
+    else
+    {
+      paramRef.current.open();
+    }
+  }
+  const closeParamPopup = () => {
+    sessionStorage.setItem("bHasCuvette", "true");
+    updateState();
+    paramRef.current.close();
   }
 
+  const [response, setResponse] = React.useState(20);
+  const responseChange = (event, newResponse) => {
+    if (newResponse !== null) {
+      setResponse(newResponse);
+    }
+  };
+
+  var incorrect_audio = new Audio(Incorrect);
+  incorrect_audio.volume = 0.05;
+  const sampleErrorRef = useRef();
+  const openSampleErrorPopup = () => {
+    incorrect_audio.play();
+    sampleErrorRef.current.open()
+  };
+  const closeSampleErrorPopup = () => sampleErrorRef.current.close();
+
   var fluorometer_image;
+  if (sessionStorage.getItem("bIsOpen") === "true")
+  {
+    if (sessionStorage.getItem("bHasCuvette") === "true")
+    {
+      fluorometer_image = FluorometerOpenNotEmpty;
+    }
+    else
+    {
+      fluorometer_image = FluorometerOpenEmpty;
+    }
+  }
+  else
+  {
+    fluorometer_image = FluorometerClosedEmpty;
+  }
 
   const updateState = () => {
-    console.log("UPDATE");
+    
     if (sessionStorage.getItem("bIsOpen") === "true")
     {
       if (sessionStorage.getItem("bHasCuvette") === "true")
       {
-        fluorometer_image = FluorometerOpenNotEmpty;
+        document.getElementById("imgClickAndChange").src = FluorometerOpenNotEmpty;
       }
       else
       {
-        fluorometer_image = FluorometerOpenEmpty;
+        document.getElementById("imgClickAndChange").src = FluorometerOpenEmpty;
       }
     }
     else
     {
-      fluorometer_image = FluorometerClosedEmpty;
+      document.getElementById("imgClickAndChange").src = FluorometerClosedEmpty;
     }
-  }
-
-  updateState();
-
-  const addCuvette = () => {
-    sessionStorage.setItem("bHasCuvette", "true");
-    updateState();
-    cuvetteSelectionRef.current.close();
   }
 
   const removeCuvette = () => {
     sessionStorage.setItem("bHasCuvette", "false");
+    updateState();
+  }
+
+  const openFluorometer = () => {
+    if (sessionStorage.getItem("bIsOpen") === "true")
+    {
+      sessionStorage.setItem("bIsOpen", "false");
+    }
+    else
+    {
+      sessionStorage.setItem("bIsOpen", "true");
+    }
     updateState();
   }
 
@@ -92,46 +147,72 @@ const FluorometerTop = () => {
           <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/front">
             Front
           </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary" onClick={openCuvetteSelectionPopup}>
-            Chemicals
+          <Button className="cuvette-Select" variant="contained" color="primary" onClick={openParamPopup}>
+            Insert Sample
           </Button>
           <Button className="cuvette-Select" variant="contained" color="primary" onClick={removeCuvette}>
-            Remove Cuvette
+            Remove Sample
           </Button>
-          <Button className="cuvette-Select" variant="contained" color="primary">
-            Open/Close Hood
+          <Button className="cuvette-Select" variant="contained" color="primary" onClick={openFluorometer}>
+            Open/Close Door
           </Button>
         </Box>
       </div>
 
-      <Popup ref={cuvetteSelectionRef} modal>
-        <div className="popup-correct">
-          <div className="side-by-side-container-quiz">
-            <div onClick={addCuvette}>
-              <Box className="cuvette-button" margin={2}>
-                <Typography align='center' variant="h1">
-                  A
-                </Typography>
-              </Box>
-            </div>
-            <div onClick={addCuvette}>
-              <Box className="cuvette-button" margin={2}>
-                <Typography align='center' variant="h1">
-                  B
-                </Typography>
-              </Box>
-            </div>
-            <div onClick={addCuvette}>
-              <Box className="cuvette-button" margin={2}>
-                <Typography align='center' variant="h1">
-                  C
-                </Typography>
-              </Box>
-            </div>
-          </div>
+      <Popup ref={sampleErrorRef} modal>
+        <div className="popup-error">
+          <button className="popup-close" onClick={closeSampleErrorPopup}>
+            &times;
+          </button>
+          <Typography variant="h4" color="secondary">
+            Error: Please remove the cuvette before selecting another sample.
+          </Typography>
         </div>
       </Popup>
 
+      <Popup ref={paramRef} modal>
+        <div className="popup-params">
+          <button className="popup-close" onClick={closeParamPopup}>
+            &times;
+          </button>
+
+          <div className="input-box">
+            <Typography variant="h6" color="primary">
+              Sample Concentration
+            </Typography>
+            <Tooltip title={
+              <h2>
+                Select a concentration for the sample.
+              </h2>
+            } placement="right" arrow>
+              <ToggleButtonGroup
+                color="secondary"
+                value={response}
+                exclusive
+                onChange={responseChange}
+              >
+                <ToggleButton value={20} style={{textTransform: "none"}}>20 ms</ToggleButton>
+                <ToggleButton value={50} style={{textTransform: "none"}}>50 ms</ToggleButton>
+                <ToggleButton value={100} style={{textTransform: "none"}}>0.1 s</ToggleButton>
+                <ToggleButton value={200} style={{textTransform: "none"}}>0.2 s</ToggleButton>
+                <ToggleButton value={500} style={{textTransform: "none"}}>0.5 s</ToggleButton>
+                <ToggleButton value={1000} style={{textTransform: "none"}}>1 s</ToggleButton>
+                <ToggleButton value={2000} style={{textTransform: "none"}}>2 s</ToggleButton>
+                <ToggleButton value={4000} style={{textTransform: "none"}}>4 s</ToggleButton>
+                <ToggleButton value={8000} style={{textTransform: "none"}}>8 s</ToggleButton>
+              </ToggleButtonGroup>
+            </Tooltip>
+          </div>
+
+          <div className="input-box">
+            <Box display="flex" justifyContent="right">
+              <Button variant="contained" onClick={closeParamPopup}>
+                Insert Sample
+              </Button>
+            </Box>
+          </div>
+        </div>
+      </Popup>
     </>
   );
 }

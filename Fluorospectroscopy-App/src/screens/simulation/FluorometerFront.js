@@ -85,7 +85,7 @@ const FluorometerFront = () => {
             </div>
             <div className='button-spacing'>
               <Button className="cuvette-Select" variant="contained" color="primary" onClick={openFluorometer}>
-                Open/Close Hood
+                Open/Close Door
               </Button>
             </div>
           </div>

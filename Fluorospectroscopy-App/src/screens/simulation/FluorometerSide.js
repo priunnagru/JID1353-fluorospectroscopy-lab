@@ -3,27 +3,27 @@ import TechGold from '../../resources/GeorgiaTech_TechGold.png'
 import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
-import FluorometerSideClosed from '../../resources/simulation/Fluorometer-SideView.png'
-import FluorometerSideClosedOn from '../../resources/simulation/Fluorometer-SideView-On.png'
-import FluorometerSideClosedOff from '../../resources/simulation/Fluorometer-SideView-Off.png'
+import FluorometerSideOpen from '../../resources/simulation/side - open.svg'
+import FluorometerSideClosed from '../../resources/simulation/side - closed.svg'
 
 const FluorometerSide = () => {
   var fluorometer_image;
-  if (sessionStorage.getItem("bIsActivated") === "true") {
-    fluorometer_image = FluorometerSideClosedOn;
+  if (sessionStorage.getItem("bIsOpen") === "true") {
+    fluorometer_image = FluorometerSideOpen;
   } else {
-    fluorometer_image = FluorometerSideClosedOff;
+    fluorometer_image = FluorometerSideClosed;
   }
+
   const toggleFluorometer = () => {
     if (sessionStorage.getItem("bIsActivated") === "true")
     {
       sessionStorage.setItem("bIsActivated", "false");
-      document.getElementById("imgClickAndChange").src = FluorometerSideClosedOff;
+      //document.getElementById("imgClickAndChange").src = FluorometerSideClosedOff;
     }
     else
     {
       sessionStorage.setItem("bIsActivated", "true");
-      document.getElementById("imgClickAndChange").src = FluorometerSideClosedOn;
+      //document.getElementById("imgClickAndChange").src = FluorometerSideClosedOn;
     }
   }
 

@@ -5,8 +5,20 @@ import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
 import FluorometerSideOpen from '../../resources/simulation/side - open.svg'
 import FluorometerSideClosed from '../../resources/simulation/side - closed.svg'
+import Incorrect from '../../resources/sounds/wrong-buzzer-6268.mp3' 
+import React, { useRef } from 'react';
+import Popup from 'reactjs-popup';
 
 const FluorometerSide = () => {
+  var incorrect_audio = new Audio(Incorrect);
+  incorrect_audio.volume = 0.05;
+  const doorErrorRef = useRef();
+  const openDoorErrorPopup = () => {
+    incorrect_audio.play();
+    doorErrorRef.current.open()
+  };
+  const closeDoorErrorPopup = () => doorErrorRef.current.close();
+
   var fluorometer_image;
   if (sessionStorage.getItem("bIsOpen") === "true") {
     fluorometer_image = FluorometerSideOpen;
@@ -22,8 +34,15 @@ const FluorometerSide = () => {
     }
     else
     {
-      sessionStorage.setItem("bIsActivated", "true");
-      //document.getElementById("imgClickAndChange").src = FluorometerSideClosedOn;
+      if (sessionStorage.getItem("bIsOpen") === "true")
+      {
+        openDoorErrorPopup();
+      }
+      else
+      {
+        sessionStorage.setItem("bIsActivated", "true");
+        //document.getElementById("imgClickAndChange").src = FluorometerSideClosedOn;
+      }
     }
   }
 
@@ -81,6 +100,17 @@ const FluorometerSide = () => {
           </div>
         </Box>
       </div>
+
+      <Popup ref={doorErrorRef} modal>
+        <div className="popup-error">
+          <button className="popup-close" onClick={closeDoorErrorPopup}>
+            &times;
+          </button>
+          <Typography variant="h4" color="secondary">
+            Error: Please close the door before activating the fluorometer.
+          </Typography>
+        </div>
+      </Popup>
     </>
   );
 }

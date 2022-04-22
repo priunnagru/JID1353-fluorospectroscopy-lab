@@ -22,7 +22,11 @@ import Popup from 'reactjs-popup';
 const FluorometerTop = () => {
   const paramRef = useRef();
   const openParamPopup = () => {
-    if (sessionStorage.getItem("bHasCuvette") === "true")
+    if (sessionStorage.getItem("bIsOpen") === "false")
+    {
+      openDoor2ErrorPopup();
+    }
+    else if (sessionStorage.getItem("bHasCuvette") === "true")
     {
       openSampleErrorPopup();
     }
@@ -53,6 +57,20 @@ const FluorometerTop = () => {
   };
   const closeSampleErrorPopup = () => sampleErrorRef.current.close();
 
+  const doorErrorRef = useRef();
+  const openDoorErrorPopup = () => {
+    incorrect_audio.play();
+    doorErrorRef.current.open()
+  };
+  const closeDoorErrorPopup = () => doorErrorRef.current.close();
+
+  const door2ErrorRef = useRef();
+  const openDoor2ErrorPopup = () => {
+    incorrect_audio.play();
+    door2ErrorRef.current.open()
+  };
+  const closeDoor2ErrorPopup = () => door2ErrorRef.current.close();
+
   var fluorometer_image;
   if (sessionStorage.getItem("bIsOpen") === "true")
   {
@@ -71,7 +89,6 @@ const FluorometerTop = () => {
   }
 
   const updateState = () => {
-    
     if (sessionStorage.getItem("bIsOpen") === "true")
     {
       if (sessionStorage.getItem("bHasCuvette") === "true")
@@ -101,7 +118,14 @@ const FluorometerTop = () => {
     }
     else
     {
-      sessionStorage.setItem("bIsOpen", "true");
+      if (sessionStorage.getItem("bIsActivated") === "true")
+      {
+        openDoorErrorPopup();
+      }
+      else
+      {
+        sessionStorage.setItem("bIsOpen", "true");
+      }
     }
     updateState();
   }
@@ -166,6 +190,28 @@ const FluorometerTop = () => {
           </button>
           <Typography variant="h4" color="secondary">
             Error: Please remove the cuvette before selecting another sample.
+          </Typography>
+        </div>
+      </Popup>
+
+      <Popup ref={doorErrorRef} modal>
+        <div className="popup-error">
+          <button className="popup-close" onClick={closeDoorErrorPopup}>
+            &times;
+          </button>
+          <Typography variant="h4" color="secondary">
+            Error: Please deactivate the fluorometer before opening the door.
+          </Typography>
+        </div>
+      </Popup>
+
+      <Popup ref={door2ErrorRef} modal>
+        <div className="popup-error">
+          <button className="popup-close" onClick={closeDoor2ErrorPopup}>
+            &times;
+          </button>
+          <Typography variant="h4" color="secondary">
+            Error: Please open the door before inserting a new sample.
           </Typography>
         </div>
       </Popup>

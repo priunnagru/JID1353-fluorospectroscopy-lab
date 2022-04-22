@@ -41,10 +41,10 @@ const FluorometerTop = () => {
     paramRef.current.close();
   }
 
-  const [response, setResponse] = React.useState(20);
-  const responseChange = (event, newResponse) => {
-    if (newResponse !== null) {
-      setResponse(newResponse);
+  const [concentration, setConcentration] = React.useState(20);
+  const concentrationChange = (event, newConcentration) => {
+    if (newConcentration !== null) {
+      setConcentration(newConcentration);
     }
   };
 
@@ -233,9 +233,9 @@ const FluorometerTop = () => {
             } placement="right" arrow>
               <ToggleButtonGroup
                 color="secondary"
-                value={response}
+                value={concentration}
                 exclusive
-                onChange={responseChange}
+                onChange={concentrationChange}
               >
                 <ToggleButton value={20} style={{textTransform: "none"}}>20 ms</ToggleButton>
                 <ToggleButton value={50} style={{textTransform: "none"}}>50 ms</ToggleButton>

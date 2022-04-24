@@ -18,6 +18,18 @@ import TutorialNewL from './screens/tutorial/TutorialNewL'
 import TutorialNewM from './screens/tutorial/TutorialNewM'
 import TutorialNewN from './screens/tutorial/TutorialNewN'
 
+import GS1 from "./screens/gettingStarted/GS1"
+import GS2 from "./screens/gettingStarted/GS2"
+import GS3 from "./screens/gettingStarted/GS3"
+import GS4 from "./screens/gettingStarted/GS4"
+import GS5 from "./screens/gettingStarted/GS5"
+import GS6 from "./screens/gettingStarted/GS6"
+import GS7 from "./screens/gettingStarted/GS7"
+import GS8 from "./screens/gettingStarted/GS8"
+import GS9 from "./screens/gettingStarted/GS9"
+import GS10 from "./screens/gettingStarted/GS10"
+import GS11 from "./screens/gettingStarted/GS11"
+
 import TopScreen from './screens/simulation/TopScreen'
 
 import FluorometerTop from './screens/simulation/FluorometerTop'
@@ -27,7 +39,7 @@ import FluorometerFront from './screens/simulation/FluorometerFront'
 import ComputerScreen from './screens/simulation/ComputerScreen'
 
 
-import Settings from './screens/Settings'
+import AboutUs from './screens/AboutUs'
 import ScrollToTop from './ScrollToTop'
 
 
@@ -53,6 +65,18 @@ function App() {
         <Route path="/tutorial/12" element={<TutorialNewM />}/>
         <Route path="/tutorial/13" element={<TutorialNewN />}/>
 
+        <Route path="/gettingStarted" element={<GS1/>}/>
+        <Route path="/gettingStarted/1" element={<GS2/>}/>
+        <Route path="/gettingStarted/2" element={<GS3/>}/>
+        <Route path="/gettingStarted/3" element={<GS4/>}/>
+        <Route path="/gettingStarted/4" element={<GS5/>}/>
+        <Route path="/gettingStarted/5" element={<GS6/>}/>
+        <Route path="/gettingStarted/6" element={<GS7/>}/>
+        <Route path="/gettingStarted/7" element={<GS8/>}/>
+        <Route path="/gettingStarted/8" element={<GS9/>}/>
+        <Route path="/gettingStarted/9" element={<GS10/>}/>
+        <Route path="/gettingStarted/10" element={<GS11/>}/>
+
         <Route path="/simulation" element={<TopScreen />}/>
           
         <Route path="/simulation/fluorometer/front" element={<FluorometerFront />}/>
@@ -61,7 +85,7 @@ function App() {
 
         <Route path="/simulation/computer" element={<ComputerScreen />}/>
 
-        <Route path="/settings" element={<Settings />}/>
+        <Route path="/aboutus" element={<AboutUs />}/>
       </Routes>
     </Router>
   );

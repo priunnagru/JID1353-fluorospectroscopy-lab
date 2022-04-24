@@ -45,6 +45,7 @@ const FluorometerTop = () => {
   const concentrationChange = (event, newConcentration) => {
     if (newConcentration !== null) {
       setConcentration(newConcentration);
+      sessionStorage.setItem("concentration", newConcentration.toString())
     }
   };
 
@@ -108,6 +109,7 @@ const FluorometerTop = () => {
 
   const removeCuvette = () => {
     sessionStorage.setItem("bHasCuvette", "false");
+    sessionStorage.setItem("concentration", "0");
     updateState();
   }
 
@@ -237,15 +239,16 @@ const FluorometerTop = () => {
                 exclusive
                 onChange={concentrationChange}
               >
-                <ToggleButton value={20} style={{textTransform: "none"}}>20 ms</ToggleButton>
-                <ToggleButton value={50} style={{textTransform: "none"}}>50 ms</ToggleButton>
-                <ToggleButton value={100} style={{textTransform: "none"}}>0.1 s</ToggleButton>
-                <ToggleButton value={200} style={{textTransform: "none"}}>0.2 s</ToggleButton>
-                <ToggleButton value={500} style={{textTransform: "none"}}>0.5 s</ToggleButton>
-                <ToggleButton value={1000} style={{textTransform: "none"}}>1 s</ToggleButton>
-                <ToggleButton value={2000} style={{textTransform: "none"}}>2 s</ToggleButton>
-                <ToggleButton value={4000} style={{textTransform: "none"}}>4 s</ToggleButton>
-                <ToggleButton value={8000} style={{textTransform: "none"}}>8 s</ToggleButton>
+                <ToggleButton value={0.0125} style={{textTransform: "none"}}>0.0125 nM</ToggleButton>
+                <ToggleButton value={0.025} style={{textTransform: "none"}}>0.025 nM</ToggleButton>
+                <ToggleButton value={0.0375} style={{textTransform: "none"}}>0.0375 nM</ToggleButton>
+                <ToggleButton value={0.05} style={{textTransform: "none"}}>0.05 nM</ToggleButton>
+                <ToggleButton value={0.0625} style={{textTransform: "none"}}>0.0625 nM</ToggleButton>
+                <ToggleButton value={0.075} style={{textTransform: "none"}}>0.075 nM</ToggleButton>
+                <ToggleButton value={0.0875} style={{textTransform: "none"}}>0.0875 nM</ToggleButton>
+                <ToggleButton value={0.1} style={{textTransform: "none"}}>0.1 nM</ToggleButton>
+                <ToggleButton value={0.01125} style={{textTransform: "none"}}>0.01125 nM</ToggleButton>
+                <ToggleButton value={0.125} style={{textTransform: "none"}}>0.125 nM</ToggleButton>
               </ToggleButtonGroup>
             </Tooltip>
           </div>

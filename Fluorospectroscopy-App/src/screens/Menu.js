@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const Menu = () => {
   const Initialize = () => {
-    console.log("INITIALIZED!")
     sessionStorage.setItem("bIsActivated", "false");
     sessionStorage.setItem("bIsOpen", "false");
     sessionStorage.setItem("bHasCuvette", "false");
+    sessionStorage.setItem("concentration", "0");
   }
 
   return (

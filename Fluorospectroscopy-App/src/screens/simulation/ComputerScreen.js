@@ -79,7 +79,7 @@ const ComputerScreen = () => {
   };
   const closeDownloadErrorPopup = () => downloadErrorRef.current.close();
 
-  const concentration = 0.0125; // This is probably a setting that needs to be changed on the fluorometer screen
+  const concentration = parseFloat(sessionStorage.getItem("concentration")); // This is probably a setting that needs to be changed on the fluorometer screen
   var hash = 0;
   const [currHash, setCurrHash] = React.useState(-1);
 

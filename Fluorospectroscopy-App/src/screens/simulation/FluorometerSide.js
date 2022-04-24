@@ -4,7 +4,8 @@ import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
 import FluorometerSideOpen from '../../resources/simulation/side - open.svg'
-import FluorometerSideClosed from '../../resources/simulation/side - closed.svg'
+import FluorometerSideClosedOn from '../../resources/simulation/side view - closed - power on.svg'
+import FluorometerSideClosedOff from '../../resources/simulation/side view - closed - power off.svg'
 import Incorrect from '../../resources/sounds/wrong-buzzer-6268.mp3' 
 import React, { useRef } from 'react';
 import Popup from 'reactjs-popup';
@@ -23,14 +24,14 @@ const FluorometerSide = () => {
   if (sessionStorage.getItem("bIsOpen") === "true") {
     fluorometer_image = FluorometerSideOpen;
   } else {
-    fluorometer_image = FluorometerSideClosed;
+    fluorometer_image = FluorometerSideClosedOff;
   }
 
   const toggleFluorometer = () => {
     if (sessionStorage.getItem("bIsActivated") === "true")
     {
       sessionStorage.setItem("bIsActivated", "false");
-      //document.getElementById("imgClickAndChange").src = FluorometerSideClosedOff;
+      document.getElementById("imgClickAndChange").src = FluorometerSideClosedOff;
     }
     else
     {
@@ -41,7 +42,7 @@ const FluorometerSide = () => {
       else
       {
         sessionStorage.setItem("bIsActivated", "true");
-        //document.getElementById("imgClickAndChange").src = FluorometerSideClosedOn;
+        document.getElementById("imgClickAndChange").src = FluorometerSideClosedOn;
       }
     }
   }

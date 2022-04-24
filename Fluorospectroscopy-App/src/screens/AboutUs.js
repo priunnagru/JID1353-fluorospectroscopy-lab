@@ -46,16 +46,7 @@ const AboutUs = () => {
             This Lab Simulation was created by a group of 4 Computer Science and Computational Media majors at The Georgia Institute of Technology. The members included Paul Case, Priun Nagru, Bum Chan Koo, and Khadijat Amoo.
           </Typography>
         </Box>
-        
-        <div className="side-by-side-container">
-            <Paper className="paper-image" elevation={10}>
-                <img className="headshot" src={paul} alt="image"/>
-            </Paper>
-            <Typography className= "general-text" variant="h4">
-                Paul Case: Frontend Developer <br></br>
-                Hello, My name is Paul Case, and I am a 3rd year computer science major at Georgia Tech. My concentrations are system architecture and devices, and I want to work on creating firmware after graduation.
-            </Typography>
-        </div>
+
         <div className="side-by-side-container">
             <Paper className="paper-image" elevation={10}>
                 <img className="headshot" src={kd} alt="image"/>
@@ -69,14 +60,12 @@ const AboutUs = () => {
         </div>
         <div className="side-by-side-container">
             <Paper className="paper-image" elevation={10}>
-                <img className="headshot" src={priun} alt="image"/>
+                <img className="headshot" src={paul} alt="image"/>
             </Paper>
-            <Box display="flex" justifyContent="center" m={2}>
-                <Typography className= "general-text" variant="h4">
-                    Priun Nagru: Fullstack Developer <br></br>
-                    I'm Priun Nagru, a Computer Science major in the Devices and Systems and Architecture threads. Ultimately, I want to apply my knowledge to become an embedded systems engineer, or work for companies manufacturing processors such as AMD, Intel, or NVIDIA!                    
-                </Typography>
-            </Box>
+            <Typography className= "general-text" variant="h4">
+                Paul Case: Frontend Developer <br></br>
+                Hello, My name is Paul Case, and I am a 3rd year computer science major at Georgia Tech. My concentrations are system architecture and devices, and I want to work on creating firmware after graduation.
+            </Typography>
         </div>
         <div className="side-by-side-container">
             <Paper className="paper-image" elevation={10}>
@@ -84,8 +73,19 @@ const AboutUs = () => {
             </Paper>
             <Box display="flex" justifyContent="center" m={2}>
                 <Typography className= "general-text" variant="h4">
-                    Bum Chan Koo: Fullstack Developer <br></br>
+                    Bum Chan Koo: Full Stack Developer <br></br>
                     My name is Bum Chan Koo, and I am a computer science major studing media and intelligence. I want to be a video game developer.
+                </Typography>
+            </Box>
+        </div>
+        <div className="side-by-side-container">
+            <Paper className="paper-image" elevation={10}>
+                <img className="headshot" src={priun} alt="image"/>
+            </Paper>
+            <Box display="flex" justifyContent="center" m={2}>
+                <Typography className= "general-text" variant="h4">
+                    Priun Nagru: Full Stack Developer <br></br>
+                    I'm Priun Nagru, a Computer Science major in the Devices and Systems and Architecture threads. Ultimately, I want to apply my knowledge to become an embedded systems engineer, or work for companies manufacturing processors such as AMD, Intel, or NVIDIA!                    
                 </Typography>
             </Box>
         </div>

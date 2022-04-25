@@ -3,8 +3,8 @@ import TechGold from '../../resources/GeorgiaTech_TechGold.png'
 import '../../styles/tutorial_styles.css';
 import { Link } from 'react-router-dom';
 import NavigateNext from '@mui/icons-material/NavigateNext';
-import FluorometerFrontClosed from '../../resources/simulation/Fluorometer-FrontView-Closed.png'
-import FluorometerFrontOpen from '../../resources/simulation/Fluorometer-FrontView-Open.png'
+import FluorometerFrontClosed from '../../resources/simulation/front - closed.svg'
+import FluorometerFrontOpen from '../../resources/simulation/front - open.svg'
 
 const FluorometerFront = () => {
   var fluorometer_image;
@@ -48,7 +48,7 @@ const FluorometerFront = () => {
 
             <div className="header-title">
               <Typography className= "general-text" variant="h2" color="primary">
-                Fluorescense Spectroscopy Simulation
+                Fluorescence Spectroscopy Simulation
               </Typography>
             </div>
 
@@ -81,11 +81,6 @@ const FluorometerFront = () => {
             <div className='button-spacing'>
               <Button className="cuvette-Select" variant="contained" color="primary" endIcon={<NavigateNext/>} component={Link} to="/simulation/fluorometer/top">
                 Top
-              </Button>
-            </div>
-            <div className='button-spacing'>
-              <Button className="cuvette-Select" variant="contained" color="primary" onClick={openFluorometer}>
-                Open/Close Hood
               </Button>
             </div>
           </div>

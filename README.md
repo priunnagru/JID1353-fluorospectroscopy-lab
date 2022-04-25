@@ -24,6 +24,7 @@ You may skip initial setup if you already have an environment running Node LTS (
 13. Once the above is done, run ```yarn start```
 14. After a bit, you should see the terminal say "Starting the development server..."
 15. Your browser should open, and eventually it will display the React app.
+
 NOTE: Every time you start the container, you will need to type ```nvm use --lts``` before you can start the app.
 
 # DEPLOYMENT, PLESK HOSTING

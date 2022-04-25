@@ -72,6 +72,13 @@ const FluorometerTop = () => {
   };
   const closeDoor2ErrorPopup = () => door2ErrorRef.current.close();
 
+  const removeSampleErrorRef = useRef();
+  const openRemoveSampleErrorPopup = () => {
+    incorrect_audio.play();
+    removeSampleErrorRef.current.open()
+  };
+  const closeRemoveSampleErrorPopup = () => removeSampleErrorRef.current.close();
+
   var fluorometer_image;
   if (sessionStorage.getItem("bIsOpen") === "true")
   {
@@ -108,9 +115,16 @@ const FluorometerTop = () => {
   }
 
   const removeCuvette = () => {
-    sessionStorage.setItem("bHasCuvette", "false");
-    sessionStorage.setItem("concentration", "0");
-    updateState();
+    if (sessionStorage.getItem("bIsOpen") === "false")
+    {
+      openRemoveSampleErrorPopup();
+    }
+    else
+    {
+      sessionStorage.setItem("bHasCuvette", "false");
+      sessionStorage.setItem("concentration", "0");
+      updateState();
+    }
   }
 
   const openFluorometer = () => {
@@ -214,6 +228,17 @@ const FluorometerTop = () => {
           </button>
           <Typography variant="h4" color="secondary">
             Error: Please open the door before inserting a new sample.
+          </Typography>
+        </div>
+      </Popup>
+
+      <Popup ref={removeSampleErrorRef} modal>
+        <div className="popup-error">
+          <button className="popup-close" onClick={closeRemoveSampleErrorPopup}>
+            &times;
+          </button>
+          <Typography variant="h4" color="secondary">
+            Error: Please open the door before removing the sample.
           </Typography>
         </div>
       </Popup>

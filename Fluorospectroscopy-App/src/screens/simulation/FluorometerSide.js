@@ -24,7 +24,12 @@ const FluorometerSide = () => {
   if (sessionStorage.getItem("bIsOpen") === "true") {
     fluorometer_image = FluorometerSideOpen;
   } else {
-    fluorometer_image = FluorometerSideClosedOff;
+    if (sessionStorage.getItem("bIsActivated") === "true") {
+      fluorometer_image = FluorometerSideClosedOn;
+    } else {
+      fluorometer_image = FluorometerSideClosedOff;
+    }
+    
   }
 
   const toggleFluorometer = () => {

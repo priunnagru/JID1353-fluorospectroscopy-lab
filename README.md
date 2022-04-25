@@ -34,7 +34,7 @@ Any future developers must request access to the control panel. Email: web@cos.g
 1. Run ```yarn build```
 2. Once it completes, you should have a directory named ```build/``` on your local development environment
 3. Navigate to the plesk control panel, and open the Plesk File Manager
-4. Navigate to ```/httpdocs```. Remove all of the following: ```build/``` directory, ```node_modules/``` directory, ```package.json```, and ```yarn.lock```
+4. Navigate to ```/httpdocs```. Remove all of the following: ```build/``` directory, ```node_modules/``` directory, ```package.json```, ```yarn.lock```, and any ```.zip``` files.
 5. On your local environment, create a zip file with any name. In it, place all of the following: ```build/``` directory, ```package.json```, and ```yarn.lock```
 6. Upload this zip file to the /httpdocs directory on Plesk. You may use the ```+``` button in the top left of Plesk, or drag and drop the zip file.
 7. In the Plesk File Manager, select the pancake menu at the right of the zip file you just uploaded and select ```Extract Files```. Press OK.

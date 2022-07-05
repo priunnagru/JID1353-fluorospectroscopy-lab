@@ -34,7 +34,7 @@ Any future developers must request access to the control panel. Email: web@cos.g
 ## ONLY FOR NEW DOMAINS
 1. Go to the Node.js section of Plesk
 2. Make sure the Application root is the location where all the site’s files will be located
-3. Make sure the Document root is in the /build directory of the Application root (for example, if ```/httpdocs``` is the Application root, the Document root should be ```/httpsdocs/build```)
+3. Make sure the Document root is in the /build directory of the Application root (for example, if ```/httpdocs``` is the Application root, the Document root should be ```/httpdocs/build```)
 4. Make sure the Application Startup File is entry.js
 5. If you see a warning indicating that entry.js does not exist, go to your local repository, locate Fluorospectroscopy-App/entry.js, and upload that file to the Application root in Plesk. Once you do this, the warning should disappear.
 

@@ -34,15 +34,15 @@ Any future developers must request access to the control panel. Email: web@cos.g
 ## ONLY FOR NEW DOMAINS
 1. Go to the Node.js section of Plesk
 2. Make sure the Application root is the location where all the site’s files will be located
-3. Make sure the Document root is in the /build directory of the Application root (for example, if / is the Application root, the Document root should be /build)
+3. Make sure the Document root is in the /build directory of the Application root (for example, if ```/httpdocs``` is the Application root, the Document root should be ```/httpsdocs/build```)
 4. Make sure the Application Startup File is entry.js
 5. If you see a warning indicating that entry.js does not exist, go to your local repository, locate Fluorospectroscopy-App/entry.js, and upload that file to the Application root in Plesk. Once you do this, the warning should disappear.
 
 ## FOR EXISTING DOMAINS
-1. Run ```yarn build```
+1. Run ```yarn build``` on your local environment
 2. Once it completes, you should have a directory named ```build/``` on your local development environment
 3. Navigate to the plesk control panel, and open the Plesk File Manager
-4. Navigate to ```Application root```. Remove all of the following: ```build/``` directory, ```node_modules/``` directory, ```package.json```, ```yarn.lock```, and any ```.zip``` files. Press the checkmark next to them, and press the `Remove` button.
+4. Navigate to the Application root. Remove all of the following: ```build/``` directory, ```node_modules/``` directory, ```package.json```, ```yarn.lock```, and any ```.zip``` files. Press the checkmark next to them, and press the `Remove` button.
 5. On your local environment, create a zip file with any name. In it, place all of the following: ```build/``` directory, ```package.json```, and ```yarn.lock```
 6. Upload this zip file to the ```Application root``` directory on Plesk. You may use the ```+``` button in the top left of Plesk, or drag and drop the zip file.
 7. In the Plesk File Manager, select the pancake menu at the right of the zip file you just uploaded and select ```Extract Files```. Press OK.

@@ -272,7 +272,7 @@ const FluorometerTop = () => {
                 <ToggleButton value={0.075} style={{textTransform: "none"}}>0.075 mM</ToggleButton>
                 <ToggleButton value={0.0875} style={{textTransform: "none"}}>0.0875 mM</ToggleButton>
                 <ToggleButton value={0.1} style={{textTransform: "none"}}>0.1 mM</ToggleButton>
-                <ToggleButton value={0.01125} style={{textTransform: "none"}}>0.01125 mM</ToggleButton>
+                <ToggleButton value={0.1125} style={{textTransform: "none"}}>0.1125 mM</ToggleButton>
                 <ToggleButton value={0.125} style={{textTransform: "none"}}>0.125 mM</ToggleButton>
               </ToggleButtonGroup>
             </Tooltip>

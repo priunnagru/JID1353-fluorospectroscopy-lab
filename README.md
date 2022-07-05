@@ -38,6 +38,7 @@ Any future developers must request access to the control panel. Email: web@cos.g
 4. Make sure the Application Startup File is entry.js
 5. If you see a warning indicating that entry.js does not exist, go to your local repository, locate Fluorospectroscopy-App/entry.js, and upload that file to the Application root in Plesk. Once you do this, the warning should disappear.
 
+## FOR EXISTING DOMAINS
 1. Run ```yarn build```
 2. Once it completes, you should have a directory named ```build/``` on your local development environment
 3. Navigate to the plesk control panel, and open the Plesk File Manager

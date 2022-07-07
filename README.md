@@ -31,25 +31,25 @@ NOTE: Every time you start the container, you will need to type ```nvm use --lts
 You need to be on GT VPN. Head to https://hosting.gatech.edu/ and login. You should be able to access the control panel here.
 Any future developers must request access to the control panel. Email: web@cos.gatech.edu
 
-## ONLY FOR NEW DOMAINS
-1. Go to the Node.js section of Plesk
-2. Make sure the Application root is the location where all the site’s files will be located
-3. Make sure the Document root is in the /build directory of the Application root (for example, if ```/httpdocs``` is the Application root, the Document root should be ```/httpdocs/build```)
-4. Make sure the Application Startup File is entry.js
-5. If you see a warning indicating that entry.js does not exist, go to your local repository, locate Fluorospectroscopy-App/entry.js, and upload that file to the Application root in Plesk. Once you do this, the warning should disappear.
+
 
 ## FOR EXISTING DOMAINS
-1. Run ```yarn build``` on your local environment
+1. Run ```yarn build``` on your local environment. Make sure to wait until the text says ```Done ...``` so that the build fully completes
 2. Once it completes, you should have a directory named ```build/``` on your local development environment
 3. Navigate to the plesk control panel, and open the Plesk File Manager
 4. Navigate to the Application root. Remove all of the following: ```build/``` directory, ```node_modules/``` directory, ```package.json```, ```yarn.lock```, and any ```.zip``` files. Press the checkmark next to them, and press the `Remove` button.
 5. On your local environment, create a zip file with any name. In it, place all of the following: ```build/``` directory, ```package.json```, and ```yarn.lock```
-6. Upload this zip file to the ```Application root``` directory on Plesk. You may use the ```+``` button in the top left of Plesk, or drag and drop the zip file.
+6. Upload this zip file to the ```Application root``` directory on Plesk (you can find this path listed under the Node.js App section of Plesk). You may use the ```+``` button in the top left of Plesk, or drag and drop the zip file.
 7. In the Plesk File Manager, select the pancake menu at the right of the zip file you just uploaded and select ```Extract Files```. Press OK.
 8. In Plesk, return to the "Websites & Domains" tab on the left.
 9. Select the ```Node.js App``` blue link near the top of the page.
-10. At the top, click on ```Yarn install```. A popup will appear, this may take a while. Once it finishes, you may ignore the errors that popup.
-11. At the top, click on ```Restart App```. After a short period, the app will be deployed.
+10. Go to the Node.js section of Plesk
+11. Make sure the Application root is the location where all the site’s files will be located
+12. Make sure the Document root is in the /build directory of the Application root (for example, if ```/httpdocs``` is the Application root, the Document root should be ```/httpdocs/build```). You may not have permission to change this, if so, go to Hosting Settings, and change it from there instead.
+13. Make sure the Application Startup File is ```entry.js```
+14. If you see a warning indicating that entry.js does not exist, go to your local repository, locate Fluorospectroscopy-App/entry.js, and upload that file to the Application root in Plesk. Once you do this, the warning should disappear.
+15. At the top, click on ```Yarn install```. A popup will appear, this may take a while. Once it finishes, you may ignore the errors that popup.
+16. At the top, click on ```Restart App```. After a short period, the app will be deployed.
 
 # DATAGEN SETUP
 The graphs were generated using a python script. This project is located in datagen.
